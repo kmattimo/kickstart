@@ -1,0 +1,40 @@
+{
+  "app": {
+    "name": "Kickstart",
+    "website": "http://kickstart.onenorth.com",
+    "tasks": ["init", "build"],
+    "tempDir": ".tmp",
+    "sourceDir": "source"
+  },
+  "files": {
+    "boilerplate": {
+      "user": "onenorth",
+      "repo": "kickstart-boilerplate",
+      "ref": "dev"
+    },
+    "styleguide": {
+      "user": "onenorth",
+      "repo": "kickstart-styleguide",
+      "ref": "dev"
+    }
+  },
+  "questions": [
+    {
+      "type": "checkbox",
+      "name": "features",
+      "message": "What would you like to include?",
+      "choices": [
+        {
+          "name": "Styleguide",
+          "value": "includeStyleguide",
+          "checked": true
+        },
+        {
+          "name": "Boilerplate Files",
+          "value": "includeBoilerplate",
+          "checked": true
+        }
+      ]
+    }
+  ]
+}

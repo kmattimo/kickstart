@@ -1,0 +1,763 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"download",
+				"downloadBoilerplateFiles"
+			],
+			[
+				"downlo",
+				"downloadStyleguideFiles"
+			],
+			[
+				"browser",
+				"browserSync"
+			],
+			[
+				"sr",
+				"srcJs"
+			],
+			[
+				"handl",
+				"handleApiRequest"
+			],
+			[
+				"login",
+				"loginAsAdmin"
+			],
+			[
+				"vali",
+				"validateSuggest"
+			],
+			[
+				"sugg",
+				"suggestHaystack"
+			],
+			[
+				"Colu",
+				"CloudinaryImage"
+			],
+			[
+				"azure",
+				"azurefileconfig"
+			],
+			[
+				"crea",
+				"createContainerIfNotExists"
+			],
+			[
+				"contain",
+				"containerFormatter"
+			],
+			[
+				"Profe",
+				"ProfessionalType"
+			],
+			[
+				"resp",
+				"respJSON"
+			],
+			[
+				"stats",
+				"statuscode"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 296.0,
+		"last_filter": "instal",
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"instll",
+				"Package Control: Install Package"
+			],
+			[
+				"syn js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"package",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"table",
+				"Emmet: Balance (inward)"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"jso",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"prett",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"gist",
+				"Gist: Insert Gist"
+			],
+			[
+				"remo e",
+				"Emmet: Remove Tag"
+			],
+			[
+				"reo",
+				"Evernote Settings: Reconfigure Authorization"
+			],
+			[
+				"update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"ss javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"remove pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"lin",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"scss",
+				"SublimeLinter: Choose Mark Style"
+			],
+			[
+				"auto",
+				"Autoprefix CSS"
+			],
+			[
+				"ss html",
+				"Set Syntax: HTML"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ss js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"lorem",
+				"LoremIpsum: (15) some"
+			],
+			[
+				"lore",
+				"LoremIpsum: (15) some"
+			],
+			[
+				"lie",
+				"LoremIpsum: (15) some"
+			],
+			[
+				"ss hmtl",
+				"Set Syntax: HTML"
+			],
+			[
+				"ss ht",
+				"Set Syntax: HTML (Tcl)"
+			],
+			[
+				"ever",
+				"Evernote: Send to Evernote as new note"
+			],
+			[
+				"evern",
+				"Evernote: Send to Evernote as new note"
+			],
+			[
+				"packa",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"packag",
+				"Package Control: List Packages"
+			],
+			[
+				"evrn",
+				"Evernote: Send to Evernote as new note"
+			],
+			[
+				"fold",
+				"Code Folding: Unfold All"
+			],
+			[
+				"add repo",
+				"Package Control: Add Repository"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"intsall",
+				"Package Control: Install Package"
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			],
+			[
+				"js",
+				"JSHint"
+			],
+			[
+				"jshin",
+				"JSHint"
+			],
+			[
+				"jsh",
+				"JSHint"
+			],
+			[
+				"jshint",
+				"JSHint"
+			],
+			[
+				"syntax: js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"fake",
+				"Snippet: fakeimg"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"isntal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 601.0
+	},
+	"console":
+	{
+		"height": 330.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Chris/Projects/kickstart",
+		"/Users/Chris/Projects/kickstart/bin",
+		"/Users/Chris/Projects/kickstart/composer"
+	],
+	"file_history":
+	[
+		"/Users/Chris/Projects/patternlab-node/builder/patternlab.js",
+		"/Users/Chris/Projects/kickstart/builder/collate.js",
+		"/Users/Chris/Projects/kickstart/gulpfile.js",
+		"/Users/Chris/Projects/kickstart/bin/kickstart.js",
+		"/Users/Chris/.ssh/config",
+		"/Users/Chris/Projects/kickstart/config.json",
+		"/var/folders/v5/9tgz5ht94gndy5psr4y7_qv40000gn/T/rsub-9jo074/index.html",
+		"/Users/Chris/.zshrc",
+		"/Users/Chris/rsub-remote.sh",
+		"/Users/Chris/.ssh/ssh_config",
+		"/Users/Chris/Projects/kickstart/bin/kickstart.json",
+		"/Users/Chris/.ssh/id_rsa.pub",
+		"/Users/Chris/.ssh/id_rsa",
+		"/Users/Chris/.ssh/authorized_keys",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/styles/scss/base/_config.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/styles/scss/styles-old-ie.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/styles/scss/vendor/_mq.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/styles/scss/styles.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/styles/scss/vendor/_include_media.scss",
+		"/Users/Chris/Projects/kickstart-test/templates/data/kickstart-data.json",
+		"/Users/Chris/.zpreztorc",
+		"/Users/Chris/Projects/patternlab-node/source/_patternlab-files/index.mustache",
+		"/Users/Chris/Projects/patternlab-node/source/_patternlab-files/styleguide.mustache",
+		"/Users/Chris/Projects/patternlab-node/source/_patternlab-files/viewall.mustache",
+		"/Users/Chris/Projects/patternlab-node/public/index.html",
+		"/Users/Chris/.zprezto/init.zsh",
+		"/Users/Chris/.zprofile",
+		"/Users/Chris/.zprezto/modules/prompt/external/soup/prompt_soup_setup",
+		"/Users/Chris/.zprezto/modules/prompt/external/agnoster/soup.zsh-theme",
+		"/Users/Chris/Projects/kickstart-test/builder/collate.js",
+		"/Users/Chris/Projects/kickstart-test/patterns/data/kickstart-data.json",
+		"/Users/Chris/Projects/kickstart-boilerplate/config.json",
+		"/Users/Chris/Projects/kickstart-test/config.json",
+		"/Users/Chris/Projects/patternlab-node/public/data/annotations.js",
+		"/Users/Chris/Projects/patternlab-node/public/patterns/01-molecules-01-layout-03-four-up/01-molecules-01-layout-03-four-up.html",
+		"/Users/Chris/Projects/patternlab-node/public/patterns/01-molecules-01-layout-03-four-up/01-molecules-01-layout-03-four-up.escaped.html",
+		"/Users/Chris/Projects/kickstart-test/src/config.json",
+		"/Users/Chris/Projects/patternlab-node/public/styleguide/html/styleguide.html",
+		"/Users/Chris/Projects/kickstart/tasks/collate.js",
+		"/Users/Chris/Projects/patternlab-node/Gruntfile.js",
+		"/Users/Chris/Projects/patternlab-node/public/styleguide/js/styleguide.js",
+		"/Users/Chris/Projects/patternlab-node/public/styleguide/js/url-handler.js",
+		"/Users/Chris/Projects/patternlab-node/source/js/init.js",
+		"/Users/Chris/Projects/patternlab-node/source/_patternlab-files/partials/ishControls.mustache",
+		"/Users/Chris/Projects/patternlab-node/source/_patternlab-files/partials/patternPaths.mustache",
+		"/Users/Chris/Projects/patternlab-node/source/_patternlab-files/partials/viewAllPaths.mustache",
+		"/Users/Chris/Projects/patternlab-node/source/_patterns/00-atoms/00-global/02-animations.mustache",
+		"/Users/Chris/Projects/patternlab-node/source/_patterns/00-atoms/00-global/01-fonts.mustache",
+		"/Users/Chris/Projects/patternlab-node/source/_patterns/00-atoms/00-global/00-colors.mustache",
+		"/Users/Chris/Projects/patternlab-node/source/_data/annotations.js",
+		"/Users/Chris/Projects/patternlab-node/source/_data/listitems.json",
+		"/Users/Chris/Projects/patternlab-node/source/_data/data.json",
+		"/Users/Chris/Projects/patternlab-node/patternlab.json",
+		"/Users/Chris/Projects/onibot/package.json",
+		"/Users/Chris/Projects/onibot/README.md",
+		"/Users/Chris/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Chris/Projects/johnny-five/test-johnny.js",
+		"/Users/Chris/Projects/kickstart/package.json",
+		"/Users/Chris/Projects/kickstart/app/index.js",
+		"/Users/Chris/Projects/kickstart/index.js",
+		"/Users/Chris/Projects/kickstart/bin/config.json",
+		"/Users/Chris/Projects/kickstart/node_modules/node-fs-extra/package.json",
+		"/Volumes/RECOVERY/recovery.cmdline",
+		"/Users/Chris/Downloads/NOOBS_v1_4_0 (1)/os/Raspbian/boot/cmdline.txt",
+		"/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+		"/Users/Chris/Projects/johnny-five/test/board-connection.js",
+		"/Users/Chris/Projects/kickstart-styleguide/.gitignore",
+		"/Users/Chris/.gitignore",
+		"/Users/Chris/Projects/kickstart-styleguide/.git/config",
+		"/Users/Chris/Projects/kickstart-styleguide/readme.md",
+		"/Users/Chris/Projects/kickstart/tasks/downloader.js",
+		"/Users/Chris/Projects/headstart-test/node_modules/headstart/package.json",
+		"/Users/Chris/Projects/kickstart/src/toolkit/modules/navigation.html",
+		"/Users/Chris/Projects/kickstart/src/toolkit/styleguide/index.html",
+		"/Users/Chris/Projects/kickstart/src/toolkit/styleguide/pages.html",
+		"/Users/Chris/Projects/kickstart/src/toolkit/styleguide/components.html",
+		"/Users/Chris/Projects/kickstart/src/toolkit/styleguide/templates.html",
+		"/Users/Chris/Projects/kickstart/src/toolkit/styleguide/modules.html",
+		"/Users/Chris/Projects/kickstart/src/kickstart/styles/partials/_layout.scss",
+		"/Users/Chris/Projects/kickstart/src/kickstart/styles/partials/_menu.scss",
+		"/Users/Chris/Projects/kickstart/src/kickstart/scripts/kickstart.js",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/main.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/layout/_layout.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/styles/main.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/styles/sass/_print.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/js/main.js",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/component/_checkbox.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/component/_select.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/component/_button.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/modules/_flag.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/modules/_media.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/modules/_carousel.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/modules/_navigation.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/modules/_accordion.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/layout/_footer.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/base/_doc.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/base/_normalize.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/main.css",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/libs/_include_media.scss",
+		"/Users/Chris/.zshenv",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/pages/_home.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/pages/_layout.scss",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/libs/README.md",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/vendor/README.md",
+		"/Users/Chris/Projects/kickstart-boilerplate/templates/layout/footer.html",
+		"/Users/Chris/Projects/kickstart-boilerplate/assets/sass/modules/_print.scss",
+		"/Users/Chris/Projects/kickstart/CNAME",
+		"/Users/Chris/Projects/kickstart/index.html",
+		"/Users/Chris/Projects/kickstart-boilerplate/.gitignore",
+		"/Users/Chris/Projects/kickstart-boilerplate/templates/index.html",
+		"/Users/Chris/Projects/kickstart-boilerplate/.jshintrc",
+		"/Users/Chris/Projects/kickstart/readme.md",
+		"/Users/Chris/Projects/kickstart-boilerplate/.git/index",
+		"/Users/Chris/Projects/kickstart-boilerplate/.git/packed-refs",
+		"/Users/Chris/Projects/kickstart-boilerplate/.git/description",
+		"/Users/Chris/Projects/kickstart-boilerplate/.git/config",
+		"/Users/Chris/Projects/kickstart-boilerplate/extras/crossdomain.xml",
+		"/Users/Chris/Projects/kickstart-boilerplate/extras/humans.txt",
+		"/Users/Chris/Projects/kickstart-boilerplate/extras/robots.txt",
+		"/Users/Chris/Projects/kickstart/src/kickstart/styles/partials/_footer.scss",
+		"/Users/Chris/Projects/kickstart/src/kickstart/styles/partials/_sidebar.scss",
+		"/Users/Chris/Projects/kickstart/src/kickstart/styles/partials/_utility.scss",
+		"/Users/Chris/Projects/kickstart/src/kickstart/styles/partials/_variables.scss",
+		"/Users/Chris/Projects/kickstart/src/toolkit/styleguide/partials/intro.html",
+		"/Users/Chris/Projects/kickstart/src/toolkit/styleguide/partials/outro.html",
+		"/Users/Chris/Projects/kickstart/src/toolkit/styleguide/partials/sidebar.html",
+		"/Users/Chris/Projects/kickstart/tasks/compile.js",
+		"/Users/Chris/Projects/kickstart-boilerplate/extras/browserconfig.xml"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 109.0,
+		"where_history":
+		[
+			"-*/node_modules/*, -*/dist/*, -*.css",
+			"-*/node_modules/*, -*.css",
+			"-*/node_modules/*",
+			"-node_modules/*",
+			"-/node_modules/*",
+			"-/node_modules",
+			"!/Node_modules",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"builder",
+			"gutil",
+			"'",
+			"ie",
+			"dev",
+			"task",
+			"shouldServe",
+			"onError",
+			"util",
+			"gutil",
+			"$.util",
+			"25%",
+			");\n",
+			"onError",
+			"fonts",
+			"tmpDir",
+			"ghdownlo",
+			"ncp",
+			"q",
+			"runSequen",
+			"minimist",
+			"q",
+			"'",
+			"fs",
+			"t-menu",
+			"menuToggle",
+			"markdown",
+			"svg",
+			"tempus",
+			".t-item-notes",
+			".t-menu",
+			"grid",
+			".grid",
+			"$default-spacing",
+			".t-item-heading-group",
+			"t-item-heading-group",
+			".sg-main",
+			".page-menu",
+			".list-n",
+			"t-active",
+			"t-item-code",
+			"t-item-heading-group",
+			"page-menu",
+			"sg-nav",
+			"gutil",
+			"            // data[dir][rawDirectories[i]].id = data[dir][rawDirectories[i]];\n            // data[dir][rawDirectories[i]].name = data[dir][rawDirectories[i]];",
+			"gutil",
+			"iterate",
+			"pages",
+			"f-",
+			"structures",
+			"here we go",
+			"f-",
+			">\n",
+			"t",
+			"data-f-",
+			"f-",
+			"fabricator",
+			"f-",
+			"fabi",
+			".f-",
+			"fabricator",
+			"f-",
+			"f-menu",
+			"toggle",
+			"data-f-toggle",
+			"f-",
+			"fabricator",
+			"f-",
+			".f",
+			".f-",
+			"f-",
+			"fonts",
+			"$.util",
+			"production",
+			"build",
+			"cached",
+			"path",
+			"config.paths",
+			"moment",
+			"test",
+			"util",
+			"uglify",
+			"sourceMapDest",
+			"browserify",
+			"hsbfy",
+			"nvm",
+			"this.reveal",
+			"\"",
+			"wp_footer",
+			"nova",
+			"menu-top-nav",
+			"menu-top-nav-and-footer-nav",
+			"coppyright-footer",
+			"copyright-footer",
+			"VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG",
+			"dynamic_sidebar",
+			"sidebar-footer-2-3",
+			"dynamic_sidebar",
+			"col-lg-6",
+			"text-",
+			"textwidget",
+			"dynamic_sidebar",
+			"col-lg-6",
+			"widget_text",
+			"nova-our-team-detail",
+			"search-box",
+			"plugin",
+			"colors",
+			"color",
+			"ir_black",
+			"let g",
+			"powerline",
+			".member-bio",
+			".section",
+			".site-nav",
+			"two-column",
+			".page-content",
+			"menu-icon",
+			".section-image",
+			".article-body",
+			".max-line",
+			"$max-line",
+			".article-body",
+			"asset_path",
+			"cta-link",
+			".article",
+			"border-solid"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"t",
+			"kickstart",
+			"t-"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 54.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "kickstart.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"main.scss",
+				"src/tempus/styles/partials/_main.scss"
+			],
+			[
+				"bloglanding",
+				"public/js/controllers/BlogLanding.js"
+			],
+			[
+				"blog-land",
+				"templates/views/partials/blog-landing.hbs"
+			],
+			[
+				"heaer",
+				"_includes/header.html"
+			],
+			[
+				"base",
+				"_assets/stylesheets/_base.scss"
+			],
+			[
+				"phil",
+				"philosophy.html"
+			],
+			[
+				"inro",
+				"_includes/philosophy/intro.html"
+			],
+			[
+				"team",
+				"team.html"
+			],
+			[
+				"footer.",
+				"_assets/stylesheets/_footer.scss"
+			],
+			[
+				"server.",
+				"server/server.js"
+			],
+			[
+				"mo",
+				"app/views/api/visits/module_container.js.erb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Projects/herokujg/joingiving/joingiving.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"fss_on_distraction_free": false,
+		"fss_on_full_screen": false
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 317.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

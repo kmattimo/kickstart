@@ -1,0 +1,34 @@
+{
+  "tempDir": ".tmp",
+  "sourceDir": "./source",
+  "publicDir": "public",
+  "exportDir": "export",
+  "patterns": {
+    "source": "_patterns",
+    "public": "patterns"
+  },
+  "assetsDir": "assets",
+  "cleanPublic": true,
+  "hintJS": true,
+  "hintCSS": false,
+  "minifyHTML": false,
+  "combineMediaQueries": true,
+  "useUncss": false,
+  "uncssIgnore": [],
+  "w3cValidation": false,
+  "assembleTemplates": true,
+  "templateAssetPrefix": "",
+  "useRevisioning": false,
+  "browserSupport": [
+    "ie >= 8",
+    "ie_mob >= 8",
+    "ff >= 30",
+    "chrome >= 32",
+    "safari >= 6",
+    "opera >= 23",
+    "ios >= 6",
+    "android 2.3",
+    "android >= 4.3",
+    "bb >= 10"
+  ]
+}
