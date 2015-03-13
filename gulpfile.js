@@ -7,7 +7,7 @@ var
     browserify      = require("browserify"),
     browserSync     = require("browser-sync"),
     del             = require('del'),
-    fse             = require('node-fs-extra'),
+    fs              = require('node-fs-extra'),
     gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     path            = require('path'),
@@ -24,7 +24,7 @@ var
 // ###########################################################################
 //   CONFIGURATION
 // ###########################################################################
-var config = fse.readJSONSync('./config.json');
+var config = fs.readJSONSync('./config.json');
 
 
 // ###########################################################################
@@ -32,7 +32,7 @@ var config = fse.readJSONSync('./config.json');
 // ###########################################################################
 var cwd = process.cwd();
 var tmpDir = path.join(cwd, config.tempDir);
-var sourceDir=  path.join(cwd, config.sourceDir);
+var sourceDir =  path.join(cwd, config.sourceDir);
 
 
 // ###########################################################################
@@ -222,7 +222,7 @@ gulp.task ('favicon', function() {
 //   COLLATE
 // ###########################################################################
 gulp.task ('assemble', function() {
-  var assembler = assembler || require('./lib/assembler');
+  var assembler = assembler || require('./lib/engine/assembler');
   var deferred, opts;
 
   if (didAssemble) { return null; }
@@ -230,13 +230,13 @@ gulp.task ('assemble', function() {
   deferred = q.defer();
 
   opts = {
-    base: path.join(config.sourceDir, config.patterns.source),
-    dest: config.patterns.public + '/data/kickstart-data.json'
+    base: path.join(sourceDir, config.patterns.source),
+    dest: path.join(config.patterns.public , '/data/kickstart-data.json')
   };
 
-  $.util.log.grey('Preparing to assemble templates...');
+  $.util.log($.util.colors.grey('Preparing to assemble templates...'));
 
-  assemble(opts, deferred.resolve);
+  assembler(opts, deferred.resolve);
 
   didAssemble = true;
 
@@ -249,7 +249,7 @@ gulp.task ('assemble', function() {
 // ###########################################################################
 
 gulp.task('build:kickstart', ['assemble'], function() {
-  var compile = compile || require('./lib/compile');
+  var compile = compile || require('./lib/engine/compile');
   var opts = {
     data: path.join(cwd, config.patterns.source, '/data/kickstart-data.json'),
     template: false
@@ -261,7 +261,7 @@ gulp.task('build:kickstart', ['assemble'], function() {
 });
 
 gulp.task('build:toolkit', ['assemble'], function() {
-  var compile = compile || require('./lib/compile');
+  var compile = compile || require('./lib/engine/compile');
   var opts = {
     data: config.patterns.source + '/data/kickstart-data.json',
     template: true
