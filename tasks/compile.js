@@ -1,18 +1,18 @@
 'use strict';
 
-var fs          = require('fs'),
+var fs          = require('fs-extra'),
     gutil       = require('gulp-util'),
     path        = require('path'),
     handlebars  = require('handlebars'),
     through     = require('through2');
 
-var data, registerPartials, buildKickstart, buildToolkit;
+var data;
 
 /**
  * [registerPartials description]
  * @return {[type]} [description]
  */
-registerPartials = function() {
+var registerPartials = function() {
 
     var partials = fs.readdirSync('src/toolkit/styleguide/partials'),
         html;
@@ -27,24 +27,31 @@ registerPartials = function() {
 };
 
 /**
- * [buildKickstart description]
- * @param  {[type]}   file     [description]
- * @param  {[type]}   encoding [description]
+ * This where we build the files needed for the presentation of the styleguide
+ * @param  {string}   file     [description]
+ * @param  {string}   encoding [description]
  * @param  {Function} callback [description]
- * @return {[type]}            [description]
+ * @return {null}            [description]
  */
-buildKickstart = function (file, encoding, callback) {
+var buildKickstart = function (file, encoding, callback) {
 
     // add to data object
     data.kickstart = true;
 
+    // convert the file.contents from a buffer to a string
+    // then pass the string to handlebars to compile
+    // then get the resulting compiled source by using the data object
+    // which contains all the data and partial references that are needed to
+    // to fully generate the resulting html
     var source = file.contents.toString(),
         template = handlebars.compile(source),
         html = template(data);
 
-    // buffer the file
+    // create a new Buffer from the resulting compiled html (because we're using through)
+    // and assign the buffered content to the file.contents property
     file.contents = new Buffer(html);
 
+    // push the file onto the through file stack
     this.push(file);
 
     callback && callback();
@@ -57,37 +64,52 @@ buildKickstart = function (file, encoding, callback) {
  * @param  {Function} callback [description]
  * @return {[type]}            [description]
  */
-buildToolkit = function (file, encoding, callback) {
+var buildToolkit = function (file, encoding, callback) {
 
     // add to data object
     // indicate we aren't building kickstart
     data.kickstart = false;
+    var fileDirs = path.dirname(file.path).split(path.sep);
 
-    var patternType = file.path.indexOf('template') > -1 ? 'templates' : 'pages'
+    var patternType = fileDirs[fileDirs.length - 1];
 
-    var key = path.basename(file.path, '.html').replace(/-/g, '');
+    // what type of pattern are we building, page or template
+    // we need to know because we are going to include the 'type' name in
+    // the file name that we output to the file system
+    // var patternType = file.path.indexOf('template') > -1 ? 'templates' : 'pages'
 
-    var comments = {
-        start: '\n\n<!-- Start ' + data[patternType][key].name + ' template -->\n\n',
-        end: '\n\n<!-- /End ' + data[patternType][key].name + ' template -->\n\n'
-    };
+    var baseKey = path.basename(file.path, '.html').replace(/-/g, '');
+    var patterns = data[patternType][baseKey].patterns;
+    var comments, source, template, html;
 
-    var source = '{{> intro}}' +
-                    comments.start +
-                    data[patternType][key].content +
-                    comments.end +
-                    '{{> outro}}';
+    for (var i = 0, len = patterns.length; i < len; i++) {
+        comments = {
+            start: '\n\n<!-- Start ' + patterns[i].name + ' template -->\n\n',
+            end: '\n\n<!-- /End ' + patterns[i].name + ' template -->\n\n'
+        };
 
-    var template = handlebars.compile(source),
+        source = '{{> intro}}' +
+                comments.start + patterns[i].content + comments.end +
+                '{{> outro}}';
+
+        template = handlebars.compile(source),
         html = template(data);
 
-    // buffer file
-    file.contents = new Buffer(html);
-    // update the file path with the pattern type name plus a dash plus the key
-    // remove any pluralization from the pattern type value
-    file.path = file.path.replace(key, patternType.replace('s', '') + "-" + key);
+        // buffer file
+        file.contents = new Buffer(html);
 
-    this.push(file);
+        console.log('basekey', baseKey);
+        console.log('pattern type', patternType.replace('s',''));
+        console.log('file path', file.path.replace(baseKey, patternType.replace('s', '') + "-" + patterns[i].id));
+
+        // update the file path with the pattern type name plus a dash plus the key
+        // remove any pluralization from the pattern type value
+        //file.path = file.path.replace(baseKey, patternType.replace('s', '') + "-" + patterns[i].id);
+        file.path = path.dirname(file.path) + "/" + patternType + "-" + baseKey + "-" + patterns[i].id + ".html";
+
+        this.push(file);
+
+    }
 
     callback && callback();
 
@@ -98,7 +120,13 @@ buildToolkit = function (file, encoding, callback) {
  * @type {Object}
  */
 module.exports = function (opts) {
-    data = JSON.parse(fs.readFileSync(opts.data));
+    try {
+        data = fs.readJSONSync(opts.data);
+    }
+    catch (error) {
+        throw new Error('An error occurred during the compilation step', error);
+    }
+
     registerPartials();
 
     return through.obj( (opts.template) ? buildToolkit : buildKickstart );

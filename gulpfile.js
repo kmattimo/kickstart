@@ -232,7 +232,12 @@ gulp.task('build:toolkit', function() {
         template: true
     };
 
-    return gulp.src(['./src/toolkit/templates/*.html', './src/toolkit/pages/*.html'])
+    var patternsrc = config.src.patterns.map(function(name) {
+        return './src/toolkit/' + name + '/**/*.html';
+    });
+
+    //return gulp.src(['./src/toolkit/templates/*.html', './src/toolkit/pages/*.html'])
+    return gulp.src(patternsrc)
         .pipe(compile(opts))
         .pipe(gulp.dest(config.dest));
 });
