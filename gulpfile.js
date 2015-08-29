@@ -126,7 +126,7 @@ gulp.task('compile:docs', function(done) {
         layout: 'default-layout',
         layouts: 'src/templates/views/layouts/*.html',
         partials: 'src/templates/views/partials/**/*.{hbs,html}',
-        src: 'src/templates/docs/**/*.md',
+        src: config.src.pages,
         dest: config.dest.base
     };
 

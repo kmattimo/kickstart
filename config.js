@@ -19,7 +19,7 @@ module.exports = {
 
   src: {
     docs: srcDir + '/docs/**/*.{md,markdown}',
-    pages: srcDir + '/templates/content/**/*.md',
+    pages: srcDir + '/templates/content/**/*.md.hbs',
     includes: srcDir + '/templates/views/partials/**/*.{hbs,html}',
     data: srcAssetsDir + '/data/**/*.{json,yaml,yml}',
     scripts: srcAssetsDir + '/js/**/*.{js,jsx}',
@@ -80,13 +80,7 @@ module.exports = {
   ],
   browserSync: {
     server: {
-      baseDir: [destDir, 'styleguide'],
-      routes: {
-        '/styleguide': 'styleguide'
-      }
-    },
-    snippetOptions: {
-      ignorePaths: ['styleguide', 'styleguide/*.html']
+      baseDir: destDir,
     },
     browsers: ['google chrome'],
     notify: true,
