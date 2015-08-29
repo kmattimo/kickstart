@@ -1,5 +1,3 @@
-{{#markdown}}
-
 # Sass Manifesto
 The Kickstart baseline Sass structure and styles try to adhere to a limited set of general guidelines. These guidelines can be described as a manifesto for developer-friendly Sass:
 
@@ -19,6 +17,3 @@ These UCARE ideas are perhaps best expressed in the recent [A List Apart](http:/
 * **Consistency** over novelty
 
 > Not every guideline applies to every situation. Use critical thinking to decide which guidelines are appropriate for your project.
-
-
-{{/markdown}}

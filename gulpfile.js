@@ -1,42 +1,60 @@
 'use strict';
-//node modules
+// node modules
 var path = require('path');
-
 // node_modules modules
-var _ = require('lodash');
 var browserify  = require("browserify");
 var browserSync = require("browser-sync");
 var bsreload = browserSync.reload;
-var del = require('del');
+var extend = require('lodash').extend;
+var gulp = require('gulp');
+var map = require('lodash').map;
 var mergeStream = require('merge-stream');
-var q = require('q');
+var omit = require('lodash').omit;
+var plugins = require('gulp-load-plugins')();
 var source = require('vinyl-source-stream');
 var watchify = require('watchify');
-
-// gulp modules
-var gulp = require('gulp');
-var plugins = require('gulp-load-plugins')();
-
 // kickstart modules
 var assemble = require('kickstart-assemble');
-
 // user project configuration
 var config = require('./config.js');
+// build time variable
+var build = new Date().getTime();
 
-// error handler
-var onError = function (err, cb) {
+// custom stream pipe error handler
+function onError (err, cb) {
     plugins.util.beep();
     plugins.util.log(plugins.util.colors.red(err));
 
     if (typeof this.emit === 'function') this.emit('end');
 };
 
+// default task
+gulp.task('default', ['build']);
+
+// production build task
+gulp.task('build:production', ['clean'], function (cb) {
+    plugins.sequence(
+        ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
+        ['compile:docs'],
+        done
+    );
+});
+
+// development build task
+gulp.task('build', ['clean'], function(done) {
+    plugins.sequence(
+        ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
+        ['compile:docs'],
+        ['browserSync', 'watch'],
+        done
+    );
+});
+
 // clean task
-gulp.task('clean', function (cb) {
-    del([
-        config.dest.base,
-        'styleguide'
-    ], cb);
+gulp.task('clean', function (done) {
+    var del = require('del');
+
+    del([ config.dest.base ], done);
 });
 
 // styles task
@@ -54,22 +72,26 @@ gulp.task('styles', function () {
         .pipe(plugins.if(config.dev, bsreload({ stream: true })));
 });
 
+// Concat the prism CSS to main CSS to save a request
+gulp.task('concat-prism-css', function() {
+  var concat = plugins.csso;
+
+  return gulp.src([buildDir + 'style.css', buildDir + 'js/libs/prism.css'])
+          .pipe(csso())
+          .pipe(gulp.dest(buildDir));
+});
+
 // scripts task
 gulp.task('scripts', function () {
-
     var browserifyTask = function () {
-
         var browserifyThis = function (bundleConfig) {
             if (config.dev) {
-                _.extend(config.src.scriptBundles, watchify.args, { debug: true });
-
-                bundleConfig = _.omit(bundleConfig, ['external', 'require']);
+                extend(config.src.scriptBundles, watchify.args, { debug: true });
+                bundleConfig = omit(bundleConfig, ['external', 'require']);
             }
 
             var b = browserify(bundleConfig);
-
             var bundle = function () {
-
                 return b
                     .bundle()
                     .on('error', onError)
@@ -89,12 +111,10 @@ gulp.task('scripts', function () {
             return bundle();
         };
 
-        return mergeStream.apply(gulp, _.map(config.scriptBundles, browserifyThis));
-
+        return mergeStream.apply(gulp, map(config.scriptBundles, browserifyThis));
     }
 
     return browserifyTask();
-
 });
 
 // images task
@@ -122,9 +142,9 @@ gulp.task('compile:docs', function(done) {
     var options = {
         assets: config.dest.assets,
         data: config.src.data,
-        production: false,
+        production: true,
         layout: 'default-layout',
-        layouts: 'src/templates/views/layouts/*.html',
+        layouts: 'src/templates/views/layouts/*.{hbs,html}',
         partials: 'src/templates/views/partials/**/*.{hbs,html}',
         pages: config.src.pages,
         dest: config.dest.base
@@ -139,16 +159,18 @@ gulp.task('browserSync', function () {
 
 // watch task
 gulp.task('watch', function () {
-    plugins.watch(config.src.docs, function () {
+    var watch = plugins.watch;
+
+    watch(config.src.docs, function () {
         plugins.sequence('compile:docs', function() {
             bsreload();
         });
     });
-    plugins.watch(config.src.styles, function () {
+    watch(config.src.styles, function () {
         gulp.start('styles:app')
     });
 
-    plugins.watch(config.src.images, function () {
+    watch(config.src.images, function () {
         gulp.start('images:app')
     });
 });
@@ -161,25 +183,58 @@ gulp.task('test:performance', function () {
 // performance task entry point
 gulp.task('perf', ['test:performance']);
 
-// production build task
-gulp.task('build:production', ['clean'], function (cb) {
-    plugins.sequence(
-        ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
-        ['compile:docs'],
-        done
-    );
+// Clones down the Prism repo
+gulp.task('clone-prism', function(done) {
+    var git = require('gulp-git');
+
+    git.clone('https://github.com/LeaVerou/prism.git',
+        { args: buildDir + 'js/libs/prism' },
+        function(err) {
+            done();
+        });
 });
 
-gulp.task('build', ['clean'], function(done) {
-    plugins.sequence(
-        ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
-        ['compile:docs'],
-        ['browserSync', 'watch'],
-        done
-    );
+// Move the Prism CSS file out of its burried place
+gulp.task('move-prism-css', function() {
+  return gulp.src(buildDir + '/js/libs/prism/themes/prism.css')
+    .pipe(minifyCss(minifyCssSettings))
+    .pipe(gulp.dest(buildDir + '/js/libs/'));
 });
 
-gulp.task('default', ['build']);
+// Concatenate and move the Prism JS files
+gulp.task('move-prism-js', function() {
+  var concat = require('gulp-concat');
+  var base = buildDir + '/js/libs/prism/components/';
+  var files = [];
+
+  [
+    'core', 'bash', 'markup', 'css', 'css-extras',
+    'scss', 'javascript'
+  ].forEach(function(item) {
+    files.push(base + 'prism-' + item + '.min.js');
+  });
+
+  return gulp.src(files, { base: '.' })
+    .pipe(concat('prism.js'))
+    .pipe(gulp.dest(buildDir + '/js/libs/'));
+});
+
+// Remove the stuff from prism we never wanted
+gulp.task('remove-prism', function() {
+  var clean = require('gulp-clean');
+
+  return gulp.src(buildDir + '/js/libs/prism', { read: false })
+    .pipe(clean());
+});
+
+// Replace build IDs inside required PHP and JS files
+gulp.task('replace-build-ids', function() {
+  var replace = require('gulp-replace');
+
+  return gulp.src([buildDir + '/**/*.php', buildDir + '/**/*.js'])
+    .pipe(replace('{{ VERSION }}', build))
+    .pipe(gulp.dest(buildDir));
+});
 
 
 

@@ -1,4 +1,3 @@
-{{#markdown}}
 #JavaScript
 
 You should adhere to following guidlines when crafting your application JavaScript.
@@ -10,4 +9,3 @@ You should adhere to following guidlines when crafting your application JavaScri
 ## Functions
 
 ## Linting
-{{/markdown}}

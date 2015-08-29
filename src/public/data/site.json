@@ -1,11 +1,11 @@
 {
-  "title": "Kickstart Template Site",
+  "title": "Kickstart | One North Interactive",
   "logo": "/images/onenorth_logo.png",
-  "description": "[Your site description should be here]",
-  "copyright": "Copyright ©2015 Client Name",
+  "description": "Kickstart is web project starter kit that includes template processing and optional pattern lab / styleguide generation",
+  "copyright": "Copyright ©2015 One North Interactive",
   "links": {
-    "facebook": "",
-    "twitter": "",
-    "youtube": ""
+    "facebook": "https://www.linkedin.com/company/one-north-interactive",
+    "twitter": "@onenorth",
+    "youtube": "https://www.youtube.com/user/OneNorthInteractive"
   }
 }

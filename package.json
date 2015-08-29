@@ -54,6 +54,7 @@
     "gulp-watch": "^4.3.3",
     "lodash": "^3.10.0",
     "merge-stream": "^1.0.0",
+    "prismjs": "0.0.1",
     "q": "^1.4.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.3.0"

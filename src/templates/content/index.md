@@ -1,4 +1,8 @@
-{{#markdown}}
+---
+layout: layout-home
+title: Kickstart | Home
+---
+
 Kickstart is a website starter kit, living style guide creator, and task runner that helps you kickstart a website build and create a living style guide that grows with your site.
 
 At a high level, [Kickstart](http://onenorth.io/kickstart "Kickstart project website") provides the following:
@@ -24,7 +28,7 @@ At a high level, [Kickstart](http://onenorth.io/kickstart "Kickstart project web
 ### Clone repository
 To use Kickstart, clone the Kickstart repository to a local folder on your machine.
 
-```
+```bash
 cd some/project/folder
 git clone https://github.com/onenorth/kickstart
 ```
@@ -55,5 +59,3 @@ If you want to build a minified and optimized version of your project, you can d
 ```
 npm build --production
 ```
-
-{{/markdown}}

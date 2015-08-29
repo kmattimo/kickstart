@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-
 <html>
-
   <head>
-
     {{> head }}
-
   </head>
 
-  <body id="home" class="page--home">
+  <body class="{{page.modifier}}">
+
+    {{> menu }}
 
     {% body %}
 
-    <script src="public/js/main.js"></script>
+    {{> scripts }}
 
   </body>
 

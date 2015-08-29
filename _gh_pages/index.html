@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kickstart | Home</title>
+    <meta name="description" content="Kickstart is web project starter kit that includes template processing and optional pattern lab / styleguide generation">
+    
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kickstart | One North Interactive" />
+    <meta property="og:description" content="Kickstart is web project starter kit that includes template processing and optional pattern lab / styleguide generation" />
+    <meta property="og:image" content="" />
+    
+    <meta name="twitter:card" content="">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="Kickstart | One North Interactive">
+    <meta name="twitter:description" content="Kickstart is web project starter kit that includes template processing and optional pattern lab / styleguide generation">
+    <meta name="twitter:image:src" content="">
+    <link href="public/css/main.css" media="screen" rel="stylesheet">  </head>
+
+  <body class="">
+
+    <div class="menu">
+    
+      <div class="brand">
+        <img class="brand__image" src="./public/images/onenorth_logo_sm.png" alt="Kickstart | One North Interactive" />
+      </div>
+    
+      <nav class="nav">
+    
+        <ul class="nav-list">
+    
+          <li class="nav-item">Item 1</li>
+          <li class="nav-item">Item 2</li>
+          <li class="nav-item">Item 3</li>
+          <li class="nav-item">Item 4</li>
+    
+        </ul>
+    
+      </nav>
+    
+    </div>
+    <div class="page-wrap --home" role="main">
+  <p>Kickstart is a website starter kit, living style guide creator, and task runner that helps you kickstart a website build and create a living style guide that grows with your site.</p>
+<p>At a high level, <a href="http://onenorth.io/kickstart" title="Kickstart project website">Kickstart</a> provides the following:</p>
+<ul>
+<li>Development and Production build tasks</li>
+<li>Core pattern library structure and starter files</li>
+<li>Living style guide generator</li>
+<li>Site template generator</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Command Line Interface</li>
+<li>Scaffold new projects or work with existing projects</li>
+<li>Easy templating with Handlebars</li>
+<li>Sass compilation, optimization and minification</li>
+<li>JavaScript bundling with Browserify, minification</li>
+<li>JavaScript and CSS linting</li>
+<li>Image optimization</li>
+<li>SVG spriting and optimization</li>
+<li>Static file serving and device synchronization with BrowserSync</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<h3 id="clone-repository">Clone repository</h3>
+<p>To use Kickstart, clone the Kickstart repository to a local folder on your machine.</p>
+<pre><code class="lang-bash">cd some/project/folder
+git clone https://github.com/onenorth/kickstart
+</code></pre>
+<h3 id="install-dependencies">Install dependencies</h3>
+<p>After the clone operation, navigate to the newly-create repository directory and install kickstart.</p>
+<pre><code>cd /some/project/folder/kickstart
+npm install
+</code></pre><h2 id="new-projects">New Projects</h2>
+<p>If you are creating a brand new project, once you&#39;ve cloned the kickstart repository, all you need to do is run <code>npm start</code> from the command line to begin a new project. This will install all required dependencies, then spin up a local web server that watches your files for changes.</p>
+<pre><code>npm start
+</code></pre><h2 id="building">Building</h2>
+<p>If you are not interested in running a development web server, you can simply build the projects files without starting web server.</p>
+<pre><code>npm build
+</code></pre><h3 id="production-builds">Production Builds</h3>
+<p>If you want to build a minified and optimized version of your project, you can do that by passing in the <code>--production</code> flag when you build.</p>
+<pre><code>npm build --production
+</code></pre>
+</div>
+
+    <script src="public/js/main.js"></script>
+  </body>
+
+</html>
