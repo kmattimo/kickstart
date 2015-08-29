@@ -118,44 +118,19 @@ gulp.task('copy:extras', function (done) {
         .pipe(gulp.dest(config.dest.base));
 });
 
-gulp.task('compile:templates', function(done) {
+gulp.task('compile:docs', function(done) {
     var options = {
         assets: config.dest.assets,
         data: config.src.data,
         production: false,
         layout: 'default-layout',
         layouts: 'src/templates/views/layouts/*.html',
-        partials: {
-            common: ['src/templates/views/partials/layout/**/*.{hbs,html}'],
-            components: ['src/templates/views/partials/components/**/*.{hbs,html}'],
-            modules: ['src/templates/views/partials/modules/**/*.{hbs,html}'],
-            structures: ['src/templates/views/partials/structures/**/*.{hbs,html}'],
-            templates: ['src/templates/views/partials/templates/**/*.{hbs,html}']
-        },
-        //partials: 'src/templates/views/partials/**/*.html',
-        pages: 'src/templates/views/*.html',
+        partials: 'src/templates/views/partials/**/*.{hbs,html}',
+        src: 'src/templates/docs/**/*.md',
         dest: config.dest.base
     };
 
     assemble.templates(options, done);
-});
-
-gulp.task('compile:styleguide', function(done) {
-  var options = {
-    assetPath: '/public', // relative to site root directory (not styleguide)
-    data: config.src.data,
-    // patterns: 'src/templates/views/partials/**/*.html',
-    patterns: {
-        component: 'src/templates/views/partials/components/**/*.{hbs,html}',
-        module: 'src/templates/views/partials/modules/**/*.{hbs,html}',
-        structure: 'src/templates/views/partials/structures/**/*.{hbs,html}',
-        template: 'src/templates/views/partials/templates/**/*.{hbs,html}'
-    },
-    pages: 'src/templates/views/*.{hbs,html}',
-    dest: 'styleguide'
-  };
-
-  assemble.styleguide(options, done);
 });
 
 gulp.task('browserSync', function () {
@@ -164,11 +139,11 @@ gulp.task('browserSync', function () {
 
 // watch task
 gulp.task('watch', function () {
-    // plugins.watch(config.src.html, function () {
-    //     plugins.sequence('compile', function() {
-    //         bsreload();
-    //     });
-    // });
+    plugins.watch(config.src.docs, function () {
+        plugins.sequence('compile:docs', function() {
+            bsreload();
+        });
+    });
     plugins.watch(config.src.styles, function () {
         gulp.start('styles:app')
     });
@@ -198,8 +173,7 @@ gulp.task('build:production', ['clean'], function (cb) {
 gulp.task('build', ['clean'], function(done) {
     plugins.sequence(
         ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
-        ['compile:templates'],
-        ['compile:styleguide'],
+        ['compile:docs'],
         ['browserSync', 'watch'],
         done
     );

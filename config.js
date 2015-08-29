@@ -4,7 +4,7 @@ var srcDir = 'src';
 var srcAssetsDir = srcDir + '/public';
 
 // destination directories
-var destDir = 'site';
+var destDir = '_dist';
 var destAssetsDir = destDir + '/public';
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
 
   src: {
     docs: srcDir + '/docs/**/*.{md,markdown}',
-    pages: srcDir + '/templates/views/*.{hbs,html}',
+    pages: srcDir + '/templates/content/**/*.md',
     includes: srcDir + '/templates/views/partials/**/*.{hbs,html}',
     data: srcAssetsDir + '/data/**/*.{json,yaml,yml}',
     scripts: srcAssetsDir + '/js/**/*.{js,jsx}',
@@ -85,7 +85,6 @@ module.exports = {
         '/styleguide': 'styleguide'
       }
     },
-    startPath: 'home.html',
     snippetOptions: {
       ignorePaths: ['styleguide', 'styleguide/*.html']
     },
