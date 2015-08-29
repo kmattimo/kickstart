@@ -19,7 +19,7 @@ module.exports = {
 
   src: {
     docs: srcDir + '/docs/**/*.{md,markdown}',
-    pages: srcDir + '/templates/content/**/*.md.hbs',
+    pages: srcDir + '/templates/content/**/*.{hbs,html,md}',
     includes: srcDir + '/templates/views/partials/**/*.{hbs,html}',
     data: srcAssetsDir + '/data/**/*.{json,yaml,yml}',
     scripts: srcAssetsDir + '/js/**/*.{js,jsx}',

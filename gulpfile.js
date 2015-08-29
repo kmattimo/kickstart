@@ -126,7 +126,7 @@ gulp.task('compile:docs', function(done) {
         layout: 'default-layout',
         layouts: 'src/templates/views/layouts/*.html',
         partials: 'src/templates/views/partials/**/*.{hbs,html}',
-        src: config.src.pages,
+        pages: config.src.pages,
         dest: config.dest.base
     };
 
@@ -165,7 +165,7 @@ gulp.task('perf', ['test:performance']);
 gulp.task('build:production', ['clean'], function (cb) {
     plugins.sequence(
         ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
-        ['compile:templates'],
+        ['compile:docs'],
         done
     );
 });
