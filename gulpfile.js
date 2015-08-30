@@ -52,7 +52,7 @@ gulp.task('build', ['clean'], function(done) {
 
 gulp.task('deploy', function() {
     return gulp.src(config.dest.base + '/**/*')
-      .pipe(require(gulp-gh-pages)());
+      .pipe(require('gulp-gh-pages')());
 })
 
 // clean task

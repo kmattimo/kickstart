@@ -15,7 +15,8 @@
   "scripts": {
     "gulp": "node node_modules/gulp/bin/gulp",
     "prestart": "npm install",
-    "build": "npm run gulp",
+    "build": "npm run gulp build",
+    "deploy": "npm run gulp deploy",
     "start": "gulp --dev",
     "test": "npm run gulp build"
   },
