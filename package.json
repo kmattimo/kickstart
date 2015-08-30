@@ -15,10 +15,10 @@
   "scripts": {
     "gulp": "node node_modules/gulp/bin/gulp",
     "prestart": "npm install",
-    "build": "npm run gulp build",
-    "deploy": "npm run gulp deploy",
+    "build": "gulp build",
+    "deploy": "gulp deploy",
     "start": "gulp --dev",
-    "test": "npm run gulp build"
+    "test": "gulp test"
   },
   "os": [
     "win32",
