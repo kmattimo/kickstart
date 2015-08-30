@@ -1,7 +1,20 @@
+// ================
+// Vendor Files
+// ================
+@import "vendor/normalize";
+@import "vendor/reset";
+// PrismJS - Code Blocks
+@import "vendor/prism";
+
+// ================
+// Base Includes
+// ================
 @import "extends";
 @import "mixins";
-@import "default";
 @import "colors";
 @import "fonts";
 @import "states";
 @import "utils";
+@import "grid";
+@import "dom";
+@import "layout";

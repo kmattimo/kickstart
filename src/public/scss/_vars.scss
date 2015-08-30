@@ -1,6 +1,6 @@
-////////////////////
-/// THEME COLORS
-////////////////////
+//==================
+// Theme Colors
+// =================
 $base-colors: (
     dark: rgb(30, 30, 30),
     medium: rgb(160, 160, 160),
@@ -8,11 +8,13 @@ $base-colors: (
     black: rgb(0, 0, 0),
     white: rgb(255, 255, 255),
     blue: rgb(41, 63, 84),
-    lightblue:rgb(90, 149, 229)
+    lightblue: rgb(90, 149, 229),
+    red: rgb(205, 24, 32)
 );
 
 $theme-dark: (
-    menu-background: lighten(map-get($base-colors, blue), 4%),
+    menu-background: map-get($base-colors, light),
+    navbar: map-get($base-colors, red),
     emphasis: map-get($base-colors, light),
     normal: map-get($base-colors, medium),
     whisper: lighten(map-get($base-colors, medium), 15%)
@@ -34,9 +36,10 @@ $theme: $theme-dark;
 
 $colors: map-merge($base-colors, $theme);
 
-///////////////////////
-/// Vertical Rhythm
-///////////////////////
+//==================
+// Vertical Rhythm
+// =================
 $default-spacing: 1rem;
+
 
 

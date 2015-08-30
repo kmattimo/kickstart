@@ -1,5 +1,29 @@
----
-layout: shell
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> head }}
+  </head>
 
-{% body %}
+  <body class="{{page.modifier}}">
+
+    <div class="content--wrapper">
+
+      {{> header }}
+
+      {{> subhead }}
+
+      <div class="page grid-container" role="main">
+
+        {{> aside }}
+
+        {% body %}
+
+      </div>
+
+    </div>
+
+    {{> scripts }}
+
+  </body>
+
+</html>

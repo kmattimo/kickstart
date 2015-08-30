@@ -1,5 +1,5 @@
 ---
-layout: layout-home
+layout: article-layout
 title: Kickstart | Home
 ---
 

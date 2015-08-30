@@ -1,28 +1,20 @@
-.ordered-list {
+.list {
 
 }
 
-.unordered-list {
-
-}
-
-.unordered-list--horizontal {
+.list--flat {
   @extend %unstyled-list;
 
-  .list__item {
-    display: inline-block;
+  &, .list-item {
+    @include display(inline-block);
   }
 }
 
-.link-list {
-  @extend %unstyled-list;
-}
-
-.link-list--horizontal {
+.list--links {
   @extend %unstyled-list;
 
-  &, .list__item {
-    display: inline-block;
+  .list-link {
+    text-decoration: none;
   }
 }
 

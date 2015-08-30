@@ -1,22 +1,33 @@
-.nav-bar {
-
+.navbar {
+  background: map-get($colors, navbar);
+  color: map-get($colors, whisper);
 }
 
-.nav-bar--horizontal {
-  @include clearfix;
-
-  padding: 1em;
-}
-
-.nav-bar__logo {
-  display: inline-block;
+.navbar-brand {
   margin: 0;
 }
 
-.nav-bar__nav {
-  float: right;
-
-  .list__item {
-    line-height: 2;
-  }
+.navbar-brand__image {
+  max-width: 120px;
 }
+
+.navbar-brand__name {
+  @include visually-hidden;
+}
+
+.navbar-navlist {
+  @extend %unstyled-list;
+}
+
+.navbar-navlist__item {
+  @include display(inline-block);
+}
+
+.navbar-navlist__link {
+  @include display(block);
+
+  padding: 1rem;
+  color: map-get($colors, white);
+}
+
+
