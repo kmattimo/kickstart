@@ -7,12 +7,22 @@
   margin: 0;
 }
 
-.navbar-brand__image {
-  max-width: 120px;
-}
+.navbar-brand__link {
+  @include display(inline-block);
 
-.navbar-brand__name {
-  @include visually-hidden;
+  padding: 20px 0;
+  font-size: $h4-size;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: map-get($colors, white);
+
+
+  &:hover,
+  &:focus {
+    color: map-get($colors, white);
+  }
 }
 
 .navbar-navlist {
@@ -26,7 +36,7 @@
 .navbar-navlist__link {
   @include display(block);
 
-  padding: 1rem;
+  padding: 25px;
   color: map-get($colors, white);
 }
 
