@@ -17,6 +17,7 @@
     <meta name="twitter:title" content="Kickstart | One North Interactive">
     <meta name="twitter:description" content="Kickstart is web project starter kit that includes template processing and optional pattern lab / styleguide generation">
     <meta name="twitter:image:src" content="">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans:400,700,300' rel='stylesheet' type='text/css'>
     <link href="public/css/main.css" media="screen" rel="stylesheet">  </head>
 
   <body class="">
@@ -33,9 +34,7 @@
       
               <a class="navbar-brand__link" href="http://onenorth.io/kickstart" alt="Kickstart Home">
       
-                <img class="navbar-brand__image --small" src="./public/images/onenorth_logo_sm.png" alt="Kickstart | One North Interactive" />
-      
-                <span class="navbar-brand__name">Kickstart | One North Interactive</span>
+                <span class="navbar-brand__name">Kickstart</span>
       
               </a>
       
@@ -96,10 +95,15 @@
               </ul>
           
             </nav>
+          <div class="company">
+            <img class="company__logo --small" src="./public//images/onenorth_logo.png" alt="Kickstart | One North Interactive" />
+          </div>
+        
         </aside>
         <article class="content--article grid-70" id="documentation">
 
-  <p>Kickstart is a website starter kit, living style guide creator, and task runner that helps you kickstart a website build and create a living style guide that grows with your site.</p>
+  <h1 id="welcome">Welcome</h1>
+<p>Kickstart is a website starter kit, living style guide creator, and task runner that helps you kickstart a website build and create a living style guide that grows with your site.</p>
 <p>At a high level, <a href="http://onenorth.io/kickstart" title="Kickstart project website">Kickstart</a> provides the following:</p>
 <ul>
 <li>Development and Production build tasks</li>
@@ -111,7 +115,8 @@
 <ul>
 <li>Command Line Interface</li>
 <li>Scaffold new projects or work with existing projects</li>
-<li>Easy templating with Handlebars</li>
+<li>Easy templating with Handlebars and a large collection of Handlebars helpers</li>
+<li>Optionally create content pages using Markdown</li>
 <li>Sass compilation, optimization and minification</li>
 <li>JavaScript bundling with Browserify, minification</li>
 <li>JavaScript and CSS linting</li>
@@ -119,26 +124,38 @@
 <li>SVG spriting and optimization</li>
 <li>Static file serving and device synchronization with BrowserSync</li>
 </ul>
-<h2 id="installation">Installation</h2>
+<h2 id="setup">Setup</h2>
+<p></p>
+<h3 id="forking">Forking</h3>
+<p>The best way to start your project with Kickstart is by forking the Kickstart project into your own repo. Doing so will prevent you from having to change the repo origin URL so that you can push your changes to your own repository.</p>
 <h3 id="clone-repository">Clone repository</h3>
-<p>To use Kickstart, clone the Kickstart repository to a local folder on your machine.</p>
-<pre><code class="lang-bash">cd some/project/folder
-git clone https://github.com/onenorth/kickstart
+<p>You can also install Kickstart by cloning the Kickstart repository to a local folder on your machine. After cloning the repository, you&#39;ll need to update the remote repo URL since you will not want or be able to push your chagnes to the source Kickstart repository.</p>
+<blockquote>
+<p>If you clone the kickstart repo, make sure you change the remote origin URL before you attempt to push any of your customizations.</p>
+</blockquote>
+<p>Whether you fork or clone the repository, here are the steps you need to perform the first time you bring the repo down locally:</p>
+<h4 id="1-git-clone-kickstart">1. git clone kickstart</h4>
+<pre><code class="lang-bash">  git clone https://github.com/onenorth/kickstart ~/projects/my-kickstart-project
 </code></pre>
-<h3 id="install-dependencies">Install dependencies</h3>
-<p>After the clone operation, navigate to the newly-create repository directory and install kickstart.</p>
-<pre><code>cd /some/project/folder/kickstart
-npm install
-</code></pre><h2 id="new-projects">New Projects</h2>
-<p>If you are creating a brand new project, once you&#39;ve cloned the kickstart repository, all you need to do is run <code>npm start</code> from the command line to begin a new project. This will install all required dependencies, then spin up a local web server that watches your files for changes.</p>
-<pre><code>npm start
-</code></pre><h2 id="building">Building</h2>
-<p>If you are not interested in running a development web server, you can simply build the projects files without starting web server.</p>
-<pre><code>npm build
-</code></pre><h3 id="production-builds">Production Builds</h3>
-<p>If you want to build a minified and optimized version of your project, you can do that by passing in the <code>--production</code> flag when you build.</p>
-<pre><code>npm build --production
+<p>  then</p>
+<pre><code class="lang-bash">  cd ~/projects/my-kickstart-project
 </code></pre>
+<h4 id="2-start-the-project">2. Start the project</h4>
+<pre><code class="lang-bash">  npm start
+</code></pre>
+<p>Running <code>npm start</code> will install all required package dependencies, then spin up a local web server, and start watching your files for changes.</p>
+<blockquote>
+<p>Running <code>npm start</code> will first run <code>npm install</code> so that all the required package dependencies are installed before anything else happens.</p>
+</blockquote>
+<h2 id="building">Building</h2>
+<p>When you are only interested in building your project (e.g., compiling templates, SCSS files, etc), but do not want to start a development web server, you can simply run <code>npm run build</code> to build the projects files without starting web server.</p>
+<pre><code class="lang-bash">npm run build
+</code></pre>
+<h3 id="production-builds">Production Builds</h3>
+<p>If you want to build a minified and optimized version of your project, you can do so by passing in the <code>--production</code> flag when you run <code>npm run build</code>:</p>
+<pre><code class="lang-bash">npm run build --production
+</code></pre>
+
 
 </article>
 
