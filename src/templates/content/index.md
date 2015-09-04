@@ -38,8 +38,8 @@ yo kickstart
 ### Forking
 The best way to start your project with Kickstart is by forking the Kickstart project into your own repo. Doing so will prevent you from having to change the repo origin URL so that you can push your changes to your own repository.
 
-### Clone repository
-You can also install Kickstart by cloning the Kickstart repository to a local folder on your machine. After cloning the repository, you'll need to update the remote repo URL since you will not want or be able to push your chagnes to the source Kickstart repository.
+### Clone Repository
+You can also install Kickstart by cloning the Kickstart repository to a local folder on your machine. After cloning the repository, you'll need to update the remote repo URL since you will not want or be able to push your changes to the source Kickstart repository.
 
 > If you clone the kickstart repo, make sure you change the remote origin URL before you attempt to push any of your customizations.
 
