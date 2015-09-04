@@ -28,29 +28,33 @@ function onError (err, cb) {
     if (typeof this.emit === 'function') this.emit('end');
 };
 
-// default task
-gulp.task('default', ['build']);
+// development build task
+gulp.task('default', ['clean'], function(done) {
+    plugins.sequence(
+        ['fonts', 'images', 'vectors', 'styles', 'scripts'],
+        ['compile:docs', 'copy:extras'],
+        done
+    );
+});
 
 // production build task
-gulp.task('build:production', ['clean'], function (cb) {
+gulp.task('build:production', ['clean'], function (done) {
+    config.dev = true;
+
     plugins.sequence(
-        ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
-        ['compile:docs'],
+        ['fonts', 'images', 'vectors', 'styles', 'scripts'],
+        ['compile:docs', 'copy:extras'],
         done
     );
 });
 
-// development build task
-gulp.task('build', ['clean'], function(done) {
-    plugins.sequence(
-        ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
-        ['compile:docs'],
-        ['browserSync', 'watch'],
-        done
-    );
+gulp.task('serve', ['default'], function(done) {
+    plugins.sequence(['browserSync', 'watch'], done);
 });
 
-gulp.task('deploy', function() {
+gulp.task('deploy', ['build:production'], function() {
+    config.dev = true;
+
     return gulp.src(config.dest.base + '/**/*')
       .pipe(require('gulp-gh-pages')());
 })
@@ -129,6 +133,14 @@ gulp.task('images', function () {
         .pipe(plugins.if(!config.dev, plugins.imagemin(config.images)))
         .pipe(gulp.dest(config.dest.images))
         .pipe(plugins.if(config.dev, bsreload({ stream: true })));
+});
+
+// vectors (svg) task
+gulp.task('vectors', function() {
+  var svgmin = require('gulp-svgmin');
+  return gulp.src(config.src.vectors)
+    .pipe(svgmin())
+    .pipe(gulp.dest(config.dest.vectors));
 });
 
 // fonts task
@@ -232,11 +244,11 @@ gulp.task('remove-prism', function() {
     .pipe(clean());
 });
 
-// Replace build IDs inside required PHP and JS files
+// Replace build IDs inside required HTML and JS files
 gulp.task('replace-build-ids', function() {
   var replace = require('gulp-replace');
 
-  return gulp.src([buildDir + '/**/*.php', buildDir + '/**/*.js'])
+  return gulp.src([buildDir + '/**/*.html', buildDir + '/**/*.js'])
     .pipe(replace('{{ VERSION }}', build))
     .pipe(gulp.dest(buildDir));
 });

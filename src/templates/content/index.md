@@ -1,9 +1,9 @@
 ---
-layout: article-layout
+layout: home-layout
 title: Kickstart | Home
 ---
 
-# Welcome
+## Welcome
 Kickstart is a website starter kit, living style guide creator, and task runner that helps you kickstart a website build and create a living style guide that grows with your site.
 
 At a high level, [Kickstart](http://onenorth.io/kickstart "Kickstart project website") provides the following:
@@ -13,7 +13,7 @@ At a high level, [Kickstart](http://onenorth.io/kickstart "Kickstart project web
 * Living style guide generator
 * Site template generator
 
-## Features
+### Features
 * Command Line Interface
 * Scaffold new projects or work with existing projects
 * Easy templating with Handlebars and a large collection of Handlebars helpers

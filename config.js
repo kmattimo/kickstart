@@ -25,6 +25,7 @@ module.exports = {
     scripts: srcAssetsDir + '/js/**/*.{js,jsx}',
     styles: srcAssetsDir + '/scss/**/*.{sass,scss}',
     images: srcAssetsDir + '/images/**/*.{gif,jpg,jpeg,png,svg,tiff}',
+    vectors: srcAssetsDir + '/vectors/**/*.svg',
     fonts: srcAssetsDir + '/fonts/**/*'
   },
 
@@ -34,17 +35,13 @@ module.exports = {
     scripts: destAssetsDir + '/js',
     styles: destAssetsDir + '/css',
     images: destAssetsDir + '/images',
+    vectors: destAssetsDir + '/vectors',
     fonts: destAssetsDir + '/fonts'
   },
 
   images: {
       progressive: true,
-      optimizationLevel: 3,
-      svgoPlugins: [
-          { removeViewBox: false },               // 3a
-          { removeUselessStrokeAndFill: false },  // 3b
-          { removeEmptyAttrs: false }             // 3c
-      ]
+      optimizationLevel: 3
   },
 
   sass: {

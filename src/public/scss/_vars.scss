@@ -12,27 +12,34 @@ $base-colors: (
     red: rgb(205, 24, 32)
 );
 
-$theme-dark: (
-    menu-background: map-get($base-colors, light),
-    navbar: map-get($base-colors, red),
-    emphasis: map-get($base-colors, light),
-    normal: map-get($base-colors, medium),
-    whisper: lighten(map-get($base-colors, medium), 15%)
-);
-
 $theme-light: (
+    normal: darken(map-get($base-colors, medium), 10%),
+    emphasis: map-get($base-colors, red),
+    whisper: lighten(map-get($base-colors, medium), 40%),
+    links: map-get($base-colors, red),
     menu-background: map-get($base-colors, light),
-    emphasis: map-get($base-colors, dark),
-    normal: darken(map-get($base-colors, medium), 10%)
+    navbar: map-get($base-colors, white)
 );
 
 $theme-medium: (
-    menu-background: rgb(75,75,75),
+    normal: darken(map-get($base-colors, medium), 15%),
     emphasis: map-get($base-colors, medium),
-    normal: darken(map-get($base-colors, medium), 15%)
+    whisper: lighten(map-get($base-colors, medium), 30%),
+    links: map-get($base-colors, dark),
+    menu-background: lighten(map-get($base-colors, medium), 50%),
+    navbar: map-get($base-colors, medium),
 );
 
-$theme: $theme-dark;
+$theme-dark: (
+    normal: map-get($base-colors, medium),
+    emphasis: map-get($base-colors, light),
+    whisper: lighten(map-get($base-colors, medium), 20%),
+    links: map-get($base-colors, medium),
+    menu-background: map-get($base-colors, dark),
+    navbar: map-get($base-colors, red)
+);
+
+$theme: $theme-light;
 
 $colors: map-merge($base-colors, $theme);
 

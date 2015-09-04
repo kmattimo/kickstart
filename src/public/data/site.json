@@ -1,12 +1,37 @@
 {
+  "name": "Kickstart",
   "title": "Kickstart | One North Interactive",
-  "brand": "Kickstart",
-  "logo": "/images/onenorth_logo.png",
+  "url": "https://github.com/onenorth/kickstart",
+  "html_url": "http://onenorth.io/kickstart",
+  "logos": {
+    "svg": "kickstart-logo.svg",
+    "png": "kickstart-logo.png",
+    "company": "onenorth_logo_sm.png"
+  },
   "description": "Kickstart is web project starter kit that includes template processing and optional pattern lab / styleguide generation",
+  "nav": {
+    "links": [
+      {
+        "text": "Blog",
+        "alt": "One North Blog",
+        "url": "http://www.onenorth.com/blog"
+      },
+      {
+        "text": "Download",
+        "alt": "Download Kickstart",
+        "url": "https://github.com/onenorth/kickstart/master/tarball.zip"
+      },
+      {
+        "text": "GitHub",
+        "alt": "Kickstart repository on GitHub",
+        "url": "https://github.com/onenorth/kickstart/"
+      }
+    ]
+  },
   "copyright": "Copyright ©2015 One North Interactive",
-  "links": {
+  "social": {
     "facebook": "https://www.linkedin.com/company/one-north-interactive",
-    "twitter": "@onenorth",
+    "twitter": "https://twitter.com/onenorth",
     "youtube": "https://www.youtube.com/user/OneNorthInteractive"
   }
 }

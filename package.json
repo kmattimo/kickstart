@@ -14,10 +14,11 @@
   ],
   "scripts": {
     "gulp": "node node_modules/gulp/bin/gulp",
-    "prestart": "npm install",
-    "build": "gulp build",
+    "build": "gulp build:production",
     "deploy": "gulp deploy",
-    "start": "gulp --dev",
+    "prestart": "npm install",
+    "serve": "gulp serve",
+    "start": "gulp",
     "test": "gulp test"
   },
   "os": [
@@ -52,6 +53,7 @@
     "gulp-sass": "^2.0.4",
     "gulp-sequence": "^0.4.0",
     "gulp-sourcemaps": "^1.5.2",
+    "gulp-svgmin": "^1.2.0",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.3.3",

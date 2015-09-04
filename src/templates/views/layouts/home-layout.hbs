@@ -4,19 +4,23 @@
     {{> head }}
   </head>
 
-  <body class="{{page.modifier}}">
+  <body class="home" id="home">
 
     <div class="page-wrapper">
 
       {{> navbar }}
 
-      {{> page-banner }}
+      {{> home-banner }}
 
       <div class="content grid-container" role="main">
 
         {{> aside }}
 
-        {% body %}
+        <article class="article article--home grid-70">
+
+          {% body %}
+
+        </article>
 
       </div>
 

@@ -2230,7 +2230,7 @@ body {
 
 body {
   margin: auto;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 p {
@@ -2238,25 +2238,29 @@ p {
   margin-top: 0;
 }
 
-p:last-child {
+p:last-of-type {
   margin-bottom: 0;
+}
+
+object {
+  max-width: 100%;
 }
 
 ::-moz-selection,
 ::-moz-selection {
   background: #cd1820;
-  color: #c6c6c6;
+  color: white;
   text-shadow: none;
 }
 
 ::-moz-selection,
 ::selection {
   background: #cd1820;
-  color: #c6c6c6;
+  color: white;
   text-shadow: none;
 }
 
-.content--wrapper {
+.page-wrapper {
   min-height: 100%;
 }
 
@@ -2275,31 +2279,37 @@ h6 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-size: 3rem;
   font-weight: 700;
 }
 
 h2 {
-  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
 }
 
 h3 {
-  font-size: 1.625rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
   font-weight: 300;
 }
 
 h4 {
-  font-size: 1.375rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
 h5 {
-  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
 }
 
 h6 {
+  margin-bottom: 1.5rem;
   font-size: 1rem;
   font-weight: 400;
 }
@@ -2318,15 +2328,15 @@ blockquote:after {
 
 blockquote p {
   font-family: Georgia, Times New Roman, serif;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-style: italic;
   color: #a0a0a0;
 }
 
 .button {
   display: inline-block;
-  background: #a0a0a0;
-  color: #f2f2f2;
+  background: #878787;
+  color: #cd1820;
   line-height: 1;
   font-weight: 400;
   padding: 1rem;
@@ -2367,7 +2377,7 @@ blockquote p {
 
 .list--flat,
 .list--links,
-.navbar-navlist {
+.navbar-links {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -2389,41 +2399,43 @@ ol {
 }
 
 .navbar {
-  background: #cd1820;
-  color: #c6c6c6;
+  background: white;
+  color: white;
 }
 
-.navbar-brand {
+.brand {
   margin: 0;
 }
 
-.navbar-brand__link {
+.brand__link {
   display: inline-block;
   padding: 20px 0;
-  font-size: 1.375rem;
-  font-weight: 300;
-  line-height: 1.5;
-  letter-spacing: 0.1rem;
+  font-size: 2rem;
+}
+
+.brand__link:hover,
+.brand__link:focus {
+  color: white;
+}
+
+.brand__name {
+  font-size: 1.5rem;
   text-transform: uppercase;
-  color: white;
+  color: #cd1820;
 }
 
-.navbar-brand__link:hover,
-.navbar-brand__link:focus {
-  color: white;
-}
-
-.navbar-navlist__item {
+.navbar-link {
   display: inline-block;
+  padding: 2rem;
+  color: #cd1820;
 }
 
-.navbar-navlist__link {
-  display: block;
-  padding: 25px;
-  color: white;
+.navbar-link:first-child {
+  padding-left: 0;
 }
 
 .menu {
+  margin-top: 3rem;
   background: #f2f2f2;
 }
 
@@ -2441,4 +2453,19 @@ ol {
 
 .footer {
   padding: 1em;
+}
+
+.page-banner--home {
+  padding: 50px 0 10px 0;
+  background: #cd1820;
+}
+
+.banner-text--home {
+  font-size: 2rem;
+  font-weight: 300;
+  color: white;
+}
+
+.banner-text--home h1 {
+  margin-top: 0;
 }

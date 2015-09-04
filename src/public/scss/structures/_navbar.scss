@@ -3,21 +3,15 @@
   color: map-get($colors, whisper);
 }
 
-.navbar-brand {
+.brand {
   margin: 0;
 }
 
-.navbar-brand__link {
+.brand__link {
   @include display(inline-block);
 
   padding: 20px 0;
-  font-size: $h4-size;
-  font-weight: 300;
-  line-height: 1.5;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
-  color: map-get($colors, white);
-
+  font-size: $h3-size;
 
   &:hover,
   &:focus {
@@ -25,19 +19,25 @@
   }
 }
 
-.navbar-navlist {
+.brand__name {
+  font-size: $h4-size;
+  text-transform: uppercase;
+  color: map-get($colors, red);
+}
+
+.navbar-links {
   @extend %unstyled-list;
 }
 
-.navbar-navlist__item {
+.navbar-link {
   @include display(inline-block);
-}
 
-.navbar-navlist__link {
-  @include display(block);
+  padding: 2rem;
+  color: map-get($colors, links);
 
-  padding: 25px;
-  color: map-get($colors, white);
+  &:first-child {
+    padding-left: 0;
+  }
 }
 
 
