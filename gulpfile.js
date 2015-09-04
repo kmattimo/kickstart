@@ -31,8 +31,8 @@ function onError (err, cb) {
 // development build task
 gulp.task('default', ['clean'], function(done) {
     plugins.sequence(
-        ['fonts', 'images', 'vectors', 'styles', 'scripts'],
-        ['compile:docs', 'copy:extras'],
+        ['fonts', 'images', 'vectors', 'styles', 'scripts', 'copy:extras'],
+        ['compile:docs'],
         done
     );
 });
@@ -42,8 +42,8 @@ gulp.task('build:production', ['clean'], function (done) {
     config.dev = true;
 
     plugins.sequence(
-        ['fonts', 'images', 'vectors', 'styles', 'scripts'],
-        ['compile:docs', 'copy:extras'],
+        ['fonts', 'images', 'vectors', 'styles', 'scripts', 'copy:extras'],
+        ['compile:docs'],
         done
     );
 });
