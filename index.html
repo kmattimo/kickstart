@@ -20,21 +20,21 @@
     <link href='https://fonts.googleapis.com/css?family=Open Sans:400,700,300' rel='stylesheet' type='text/css'>
     <link href="public/css/main.css" media="screen" rel="stylesheet">  </head>
 
-  <body class="">
+  <body class="home" id="home">
 
-    <div class="content--wrapper">
+    <div class="page-wrapper">
 
-      <header class="navbar" role="banner">
+      <nav class="navbar" role="navigation">
       
         <div class="grid-container">
       
-          <div class="grid-33">
+          <div class="grid-30">
       
-            <h1 class="navbar-brand">
+            <h1 class="brand">
       
-              <a class="navbar-brand__link" href="http://onenorth.io/kickstart" alt="Kickstart Home">
+              <a class="brand__link" href="http://onenorth.io/kickstart" alt="Kickstart | One North Interactive">
       
-                <span class="navbar-brand__name">Kickstart</span>
+                <span class="brand__name">Kickstart</span>
       
               </a>
       
@@ -42,37 +42,50 @@
       
           </div>
       
-          <nav class="navbar-nav grid-33 push-33">
+          <div class="grid-70">
       
-            <ul class="navbar-navlist">
+            <div class="navbar-links">
       
-              <li class="navbar-navlist__item">
-                <a class="navbar-navlist__link" href="http://www.onenorth.com/blog/" alt="One North Blog">Blog</a>
-              </li>
+              <a class="navbar-link" href="http://www.onenorth.com/blog" title="One North Blog" rel="prefetch">Blog</a>
+              <a class="navbar-link" href="https://github.com/onenorth/kickstart/master/tarball.zip" title="Download Kickstart" rel="prefetch">Download</a>
+              <a class="navbar-link" href="https://github.com/onenorth/kickstart/" title="Kickstart repository on GitHub" rel="prefetch">GitHub</a>
       
-              <li class="navbar-navlist__item">
-                <a class="navbar-navlist__link navbar-navlist__link--icon" href="https://github.com/onenorth/kickstart/archive/master.zip">Download</a>
-              </li>
+            </div>
       
-              <li class="navbar-navlist__item">
-                <a class="navbar-navlist__link" href="https://github.com/onenorth/kickstart/" alt="Kickstart Github Repo">Github Repo</a>
-              </li>
-      
-            </ul>
-      
-          </nav>
+          </div>
       
         </div>
       
-      </header>
-      <header class="subhead">
+      </nav>
+      <header class="page-banner page-banner--home" role="banner">
+      
         <div class="grid-container">
-          <h1 class="subhead-title">
-            
-          </h1>
+      
+          <div class="grid-70 push-30">
+      
+            <div class="banner-text--home">
+      
+              <h1>Give yourself a kickstart</h1>
+      <p>Kickstart is a combined web project starter kit, pattern lab and styleguide generator aimed at starting you off on the right track, and keeping you there.</p>
+      
+      
+            </div>
+      
+          </div>
+      
+          <div class="grid-30 pull-80">
+      
+            <div class="banner-image banner-image--scalable">
+      
+              <object type="image/svg+xml" data="public/vectors/kickstart-logo.svg" class="brand__logo">
+              </object>
+      
+            </div>
+      
         </div>
+      
       </header>
-      <div class="page grid-container" role="main">
+      <div class="content grid-container" role="main">
 
         <aside class="menu content--aside grid-25 suffix-5" id="menu">
         
@@ -96,13 +109,13 @@
           
             </nav>
           <div class="company">
-            <img class="company__logo --small" src="./public//images/onenorth_logo.png" alt="Kickstart | One North Interactive" />
+            <img class="company__logo --small" src="./public/images/onenorth_logo_sm.png" alt="Kickstart | One North Interactive" />
           </div>
         
         </aside>
-        <article class="content--article grid-70" id="documentation">
+        <article class="article article--home grid-70">
 
-  <h1 id="welcome">Welcome</h1>
+          <h2 id="welcome">Welcome</h2>
 <p>Kickstart is a website starter kit, living style guide creator, and task runner that helps you kickstart a website build and create a living style guide that grows with your site.</p>
 <p>At a high level, <a href="http://onenorth.io/kickstart" title="Kickstart project website">Kickstart</a> provides the following:</p>
 <ul>
@@ -111,7 +124,7 @@
 <li>Living style guide generator</li>
 <li>Site template generator</li>
 </ul>
-<h2 id="features">Features</h2>
+<h3 id="features">Features</h3>
 <ul>
 <li>Command Line Interface</li>
 <li>Scaffold new projects or work with existing projects</li>
@@ -157,7 +170,7 @@
 </code></pre>
 
 
-</article>
+        </article>
 
       </div>
 

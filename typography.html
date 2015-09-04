@@ -22,19 +22,19 @@
 
   <body class="">
 
-    <div class="content--wrapper">
+    <div class="page-wrapper">
 
-      <header class="navbar" role="banner">
+      <nav class="navbar" role="navigation">
       
         <div class="grid-container">
       
-          <div class="grid-33">
+          <div class="grid-30">
       
-            <h1 class="navbar-brand">
+            <h1 class="brand">
       
-              <a class="navbar-brand__link" href="http://onenorth.io/kickstart" alt="Kickstart Home">
+              <a class="brand__link" href="http://onenorth.io/kickstart" alt="Kickstart | One North Interactive">
       
-                <span class="navbar-brand__name">Kickstart</span>
+                <span class="brand__name">Kickstart</span>
       
               </a>
       
@@ -42,37 +42,23 @@
       
           </div>
       
-          <nav class="navbar-nav grid-33 push-33">
+          <div class="grid-70">
       
-            <ul class="navbar-navlist">
+            <div class="navbar-links">
       
-              <li class="navbar-navlist__item">
-                <a class="navbar-navlist__link" href="http://www.onenorth.com/blog/" alt="One North Blog">Blog</a>
-              </li>
+              <a class="navbar-link" href="http://www.onenorth.com/blog" title="One North Blog" rel="prefetch">Blog</a>
+              <a class="navbar-link" href="https://github.com/onenorth/kickstart/master/tarball.zip" title="Download Kickstart" rel="prefetch">Download</a>
+              <a class="navbar-link" href="https://github.com/onenorth/kickstart/" title="Kickstart repository on GitHub" rel="prefetch">GitHub</a>
       
-              <li class="navbar-navlist__item">
-                <a class="navbar-navlist__link navbar-navlist__link--icon" href="https://github.com/onenorth/kickstart/archive/master.zip">Download</a>
-              </li>
+            </div>
       
-              <li class="navbar-navlist__item">
-                <a class="navbar-navlist__link" href="https://github.com/onenorth/kickstart/" alt="Kickstart Github Repo">Github Repo</a>
-              </li>
-      
-            </ul>
-      
-          </nav>
+          </div>
       
         </div>
       
-      </header>
-      <header class="subhead">
-        <div class="grid-container">
-          <h1 class="subhead-title">
-            
-          </h1>
-        </div>
-      </header>
-      <div class="page grid-container" role="main">
+      </nav>
+      <!-- TODO -->
+      <div class="content grid-container" role="main">
 
         <aside class="menu content--aside grid-25 suffix-5" id="menu">
         
@@ -96,7 +82,7 @@
           
             </nav>
           <div class="company">
-            <img class="company__logo --small" src="./public//images/onenorth_logo.png" alt="Kickstart | One North Interactive" />
+            <img class="company__logo --small" src="./public/images/onenorth_logo_sm.png" alt="Kickstart | One North Interactive" />
           </div>
         
         </aside>
