@@ -85,7 +85,15 @@ module.exports = {
       outputName: 'main.js',
       require: ['jquery'],
       debug: true
+    },
+    {
+      name: 'vendor',
+      entries: srcAssetsDir + '/js/vendor.js',
+      dest: destAssetsDir + '/js', 
+      outputName: 'vendor.bundle.js'
     }
+
+    
   ],
   browserSync: {
     server: {

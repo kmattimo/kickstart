@@ -29,6 +29,7 @@
     "npm": ">=2.0.0"
   },
   "dependencies": {
+    "jquery": "^2.2.3",
     "kickstart-assemble": "onenorth/kickstart-assemble#master"
   },
   "devDependencies": {
