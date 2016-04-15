@@ -1,5 +1,10 @@
 Kickstart is a website starter kit, living style guide creator, and task runner that helps you kickstart a website build and create a living style guide that grows with your site.
 
+
+##Kyle's streamlined personal project/hackathon version
+* Disregard older browsers for the sake of learning cool stuff (e.g. flexbox)
+* Simplify folder structures for easier learning curve and to fit smaller projects
+
 ##Features
 * Command Line Interface
 * Scaffold new projects or work with existing projects

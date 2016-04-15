@@ -14,14 +14,6 @@
     box-sizing: border-box;
 }
 
-@mixin display($display: block) {
-    display: $display;
-
-    @if ($display == inline-block and $legacy_support_for_ie) {
-        *display: inline;
-        zoom: 1;
-    }
-}
 
 /// Helper mixin to size elements
 /// @param {Number} $width - Width

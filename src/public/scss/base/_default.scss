@@ -4,12 +4,12 @@ $a-tags: 'a, a:active, a:hover';
 $a-tags-hover: 'a:active, a:hover';
 
 #{$a-tags} {
-    color: map-get($colors, lightblue);
+    // color: map-get($colors, lightblue);
     text-decoration: none;
 }
 
 #{$a-tags-hover} {
-    color: mix(map-get($colors, lightblue), map-get($colors, dark), 95%);
+    // color: mix(map-get($colors, lightblue), map-get($colors, dark), 95%);
 }
 
 html,
