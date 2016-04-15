@@ -1,5 +1,5 @@
 // VARIABLES
-// @import "vars";
+@import "vars";
 
 // VENDOR
 @import "vendor/normalize";
@@ -7,5 +7,12 @@
 
 
 // BASE
-@import "base/manifest";
+@import "mixins";
+@import "default";
+@import "colors";
+@import "typography";
+@import "states";
+@import "grid";
 
+// App/page specific 
+@import "app/manifest";
