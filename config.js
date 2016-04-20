@@ -28,7 +28,8 @@ module.exports = {
     scripts: srcAssetsDir + '/js/**/*.{js,jsx}',
     styles: srcAssetsDir + '/scss/**/*.{sass,scss}',
     images: srcAssetsDir + '/images/**/*.{gif,jpg,jpeg,png,svg,tiff}',
-    fonts: srcAssetsDir + '/fonts/**/*'
+    fonts: srcAssetsDir + '/fonts/**/*',
+    staticjs: srcAssetsDir + '/js/**/*'
   },
 
   dest: {
@@ -37,7 +38,8 @@ module.exports = {
     scripts: destAssetsDir + '/js',
     styles: destAssetsDir + '/css',
     images: destAssetsDir + '/images',
-    fonts: destAssetsDir + '/fonts'
+    fonts: destAssetsDir + '/fonts',
+    staticjs: destAssetsDir + '/js'
   },
 
   images: {
@@ -60,8 +62,8 @@ module.exports = {
     autoprefixer: {
       // you could use ['last 2 version'] instead of listing out browser specifics
       browsers: [
-        'ie >= 8',
-        'ie_mob >= 8',
+        'ie >= 10',
+        'ie_mob >= 10',
         'ff >= 30',
         'chrome >= 32',
         'safari >= 6',
@@ -82,7 +84,7 @@ module.exports = {
     {
       entries: srcAssetsDir + '/js/main.js',
       dest: destAssetsDir + '/js',
-      outputName: 'main.js',
+      outputName: 'main.bundle.js',
       require: ['jquery'],
       debug: true
     },
@@ -102,7 +104,7 @@ module.exports = {
         '/styleguide': 'styleguide'
       }
     },
-    startPath: 'home.html',
+    startPath: '/',
     snippetOptions: {
       ignorePaths: ['styleguide', 'styleguide/*.html']
     },

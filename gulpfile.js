@@ -118,6 +118,12 @@ gulp.task('copy:extras', function () {
         .pipe(gulp.dest(config.dest.base));
 });
 
+gulp.task('copy:staticjs', function () {
+    return gulp.src('./src/public/js/**/*.*')
+        .pipe(gulp.dest(config.dest.staticjs));
+});
+
+
 gulp.task('compile:templates', function(done) {
     var options = {
         assets: config.dest.assets,
@@ -178,6 +184,13 @@ gulp.task('watch', function () {
     plugins.watch(config.src.images, function () {
         gulp.start('images')
     });
+    
+    plugins.watch(config.src.staticjs, function () {
+       plugins.sequence('copy:staticjs', function() {
+       bsreload();
+     });
+   });
+   
 });
 
 // test performance task
@@ -191,7 +204,7 @@ gulp.task('perf', ['test:performance']);
 // production build task
 gulp.task('build:production', ['clean'], function (cb) {
     plugins.sequence(
-        ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
+        ['fonts', 'images', 'styles', 'scripts', 'copy:extras', 'copy:staticjs'],
         ['compile:templates'],
         done
     );
@@ -199,7 +212,7 @@ gulp.task('build:production', ['clean'], function (cb) {
 
 gulp.task('build', ['clean'], function(done) {
     plugins.sequence(
-        ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
+        ['fonts', 'images', 'styles', 'scripts', 'copy:extras', 'copy:staticjs'],
         ['compile:templates'],
         ['compile:styleguide'],
         ['browserSync', 'watch'],
