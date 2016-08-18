@@ -4,10 +4,12 @@ var path = require('path');
 
 // node_modules modules
 var _ = require('lodash');
+var bundleWatchers;
 var browserify  = require("browserify");
 var browserSync = require("browser-sync");
 var bsreload = browserSync.reload;
 var del = require('del');
+var glob = require("glob")
 var mergeStream = require('merge-stream');
 var q = require('q');
 var source = require('vinyl-source-stream');
@@ -55,26 +57,32 @@ gulp.task('styles', function () {
 });
 
 // scripts task
-gulp.task('scripts', function () {
+gulp.task('scripts', function (test) {
+    var bundleConfig = {};
+    var entries = glob.sync(config.scripts.entries);
+
+    bundleWatchers = [];
+
+    if (config.dev) {
+        _.extend(bundleConfig, watchify.args, { debug: true });
+        bundleConfig = _.omit(bundleConfig, ['external', 'require']);
+    }
 
     var browserifyTask = function () {
 
-        var browserifyThis = function (bundleConfig) {
-            if (config.dev) {
-                _.extend(config.src.scriptBundles, watchify.args, { debug: true });
-
-                bundleConfig = _.omit(bundleConfig, ['external', 'require']);
-            }
+        var browserifyThis = function (file) {
+            bundleConfig.entries = file;
 
             var b = browserify(bundleConfig);
+            bundleWatchers.push(b);
 
             var bundle = function () {
 
                 return b
                     .bundle()
                     .on('error', onError)
-                    .pipe(source(bundleConfig.outputName))
-                    .pipe(gulp.dest(bundleConfig.dest))
+                    .pipe(source(path.basename(file)))
+                    .pipe(gulp.dest(config.scripts.dest))
                     .pipe(plugins.if(config.dev, bsreload({ stream: true })));
             };
 
@@ -89,7 +97,7 @@ gulp.task('scripts', function () {
             return bundle();
         };
 
-        return mergeStream.apply(gulp, _.map(config.scriptBundles, browserifyThis));
+        return mergeStream.apply(gulp, _.map(entries, browserifyThis));
 
     }
 
@@ -175,6 +183,14 @@ gulp.task('watch', function () {
         gulp.start('styles')
     });
 
+    plugins.watch(config.src.scripts, function () {
+        bundleWatchers.forEach(function (watcher) {
+            watcher.close();
+        });
+
+        gulp.start('scripts');
+    });
+
     plugins.watch(config.src.images, function () {
         gulp.start('images')
     });
@@ -208,6 +224,3 @@ gulp.task('build', ['clean'], function(done) {
 });
 
 gulp.task('default', ['build']);
-
-
-

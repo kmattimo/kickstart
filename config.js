@@ -21,11 +21,12 @@ module.exports = {
   },
 
   src: {
+    base: srcDir,
     docs: srcDir + '/docs/**/*.{md,markdown}',
     pages: srcDir + '/templates/views/*.{hbs,html}',
     includes: srcDir + '/templates/views/partials/**/*.{hbs,html}',
     data: srcAssetsDir + '/data/**/*.{json,yaml,yml}',
-    scripts: srcAssetsDir + '/js/**/*.{js,jsx}',
+    scripts: srcAssetsDir + '/js/*.{js,jsx}',
     styles: srcAssetsDir + '/scss/**/*.{sass,scss}',
     images: srcAssetsDir + '/images/**/*.{gif,jpg,jpeg,png,svg,tiff}',
     fonts: srcAssetsDir + '/fonts/**/*'
@@ -77,16 +78,12 @@ module.exports = {
       imagesPath: 'public/images' // used by the image-url helper
     }
   },
-
-  scriptBundles: [
-    {
-      entries: srcAssetsDir + '/js/main.js',
+  scripts: {
+      entries: srcAssetsDir + '/js/*.js',
       dest: destAssetsDir + '/js',
-      outputName: 'main.js',
       require: ['jquery'],
       debug: true
-    }
-  ],
+    },
   browserSync: {
     server: {
       baseDir: [destDir, 'styleguide'],
