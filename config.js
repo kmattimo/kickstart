@@ -79,10 +79,12 @@ module.exports = {
     }
   },
   scripts: {
-      entries: srcAssetsDir + '/js/*.js',
+      bundleConfig: {
+        debug: true,
+        require: ['jquery']
+      },
       dest: destAssetsDir + '/js',
-      require: ['jquery'],
-      debug: true
+      entries: srcAssetsDir + '/js/*.js'
     },
   browserSync: {
     server: {

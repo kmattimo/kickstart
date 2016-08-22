@@ -58,13 +58,13 @@ gulp.task('styles', function () {
 
 // scripts task
 gulp.task('scripts', function () {
-    var bundleConfig = {};
+    var bundleConfig = config.scripts.bundleConfig;
     var entries = glob.sync(config.scripts.entries);
 
     browserifyInstances = [];
 
     if (config.dev) {
-        _.extend(bundleConfig, watchify.args, { debug: true });
+        _.extend(bundleConfig, watchify.args);
         bundleConfig = _.omit(bundleConfig, ['external', 'require']);
     }
 
