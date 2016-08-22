@@ -4,7 +4,7 @@ var path = require('path');
 
 // node_modules modules
 var _ = require('lodash');
-var bundleWatchers;
+var browserifyInstances;
 var browserify  = require("browserify");
 var browserSync = require("browser-sync");
 var bsreload = browserSync.reload;
@@ -57,11 +57,11 @@ gulp.task('styles', function () {
 });
 
 // scripts task
-gulp.task('scripts', function (test) {
+gulp.task('scripts', function () {
     var bundleConfig = {};
     var entries = glob.sync(config.scripts.entries);
 
-    bundleWatchers = [];
+    browserifyInstances = [];
 
     if (config.dev) {
         _.extend(bundleConfig, watchify.args, { debug: true });
@@ -74,7 +74,7 @@ gulp.task('scripts', function (test) {
             bundleConfig.entries = file;
 
             var b = browserify(bundleConfig);
-            bundleWatchers.push(b);
+            browserifyInstances.push(b);
 
             var bundle = function () {
 
@@ -183,13 +183,20 @@ gulp.task('watch', function () {
         gulp.start('styles')
     });
 
-    plugins.watch(config.src.scripts, function () {
-        bundleWatchers.forEach(function (watcher) {
-            watcher.close();
-        });
+    plugins.watch(config.scripts.entries, {
+            events: ['add', 'unlink']
+        },
+        function () {
+            browserifyInstances.forEach(function (instance) {
+                // If config.dev is true, there will be no watcher to close
+                if (instance.close) {
+                    instance.close();
+                }
 
-        gulp.start('scripts');
-    });
+                gulp.start('scripts');
+            });
+        }
+    );
 
     plugins.watch(config.src.images, function () {
         gulp.start('images')
