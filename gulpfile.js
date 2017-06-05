@@ -16,8 +16,8 @@ var source = require('vinyl-source-stream');
 var watchify = require('watchify');
 var requireDir = require('require-dir');
 var runSequence = require('run-sequence');
-
-// load gulp tasks
+// var plugins = require('gulp-load-plugins');
+// load gulp tasks from file
 var tasks = requireDir('./tasks', { recurse: true });
 
 // user project configuration
@@ -26,63 +26,35 @@ var config = require('./config.js');
 var browserSyncLoadDelay = 750;
 
 
-// Move
-gulp.task('moveFiles', function() {
-    for (var i = config.src.moveFiles.length - 1; i >= 0; i--) {
-        gulp.src(config.src.moveFiles[i])
-            .pipe(gulp.dest(config.dest.moveFiles[i]));
-    }
-});
-
 gulp.task('browserSync', function() {
     return browserSync(config.browserSync);
 });
 
-gulp.task('copy:js', function(done) {
-    gulp.src(config.src.customScripts)
-        .pipe(gulp.dest(config.dest.customScripts))
-    done()
-});
 
-// watch task
+// global watch task - compile sass on change, reload browser on JS change
 gulp.task('watch', function() {
 
-    plugins.watch(config.src.styles, function() {
-        gulp.start('styles');
+    gulp.watch(config.src.styles, function() {
+        gulp.start('styles:dev');
     });
 
-    plugins.watch(config.src.images, function() {
-        gulp.start('images');
+    gulp.watch(config.src.js, function() {
+        browserSync.reload();
     });
 
-    plugins.watch(config.src.data, function() {
-        gulp.start('copy:js');
-    });
-
-    plugins.watch(config.src.customScripts, function() {
-        gulp.start('copy:js');
-    });
-
-    plugins.watch(config.src.data, function() {
+    gulp.watch(config.src.data, function() {
         browserSync.reload();
     });
 
 });
 
-// test performance task
-gulp.task('test:performance', function() {
-    //TODO: write the performance tasks
-});
 
-// performance task entry point
-gulp.task('perf', ['test:performance']);
-
-// SERVER
+// SERVER - use express to compile handlebars and handle the requests
 gulp.task('serve', function() {
     nodemon({
         script: 'app.js',
         ext: 'js',
-        ignore: ['node_modules/', 'dist/', 'src/public/', 'gulpfile.js'],
+        ignore: ['node_modules/', 'public/', 'src/public/', 'gulpfile.js'],
         tasks: []
     }).on('restart', function() {
         setTimeout(function() {
@@ -92,18 +64,20 @@ gulp.task('serve', function() {
     });
 });
 
-// production build task
-gulp.task('build:production', ['clean'], function(done) {
+// production build task - minifies CSS
+gulp.task('build:production', ['clean:styles'], function(done) {
     plugins.sequence(
-        ['fonts', 'images', 'styles', 'scripts', 'copy:extras'],
+        ['fonts', 'styles:release'],
         done
     );
 });
 
 gulp.task('clean:styles', tasks.cleanStyles);
+//compiles SCSS to CSS
 gulp.task('sass', tasks.sass);
 gulp.task('autoprefix', tasks.autoprefixer);
 gulp.task('minify-styles', tasks.minifyStyles);
+gulp.task('fonts', tasks.fonts);
 
 gulp.task('styles:dev', function(done) {
     runSequence('clean:styles', 'sass', 'autoprefix', done);
@@ -114,10 +88,11 @@ gulp.task('styles:release', function(done) {
 });
 
 
-gulp.task('build', ['clean'], function() {
+//The default task. Compiles CSS, runs express and uses browsersync to inject changes on the fly.
+gulp.task('build', ['clean:styles'], function() {
     runSequence(
-        ['fonts', 'images', 'styles', 'scripts', 'copy:extras', 'moveFiles'],
-        'copy:js', ['watch', 'serve'],
+        ['fonts', 'styles:dev' ],
+        ['watch', 'serve'],
         function() {
             setTimeout(function() {
                 browserSync.init({

@@ -45,7 +45,11 @@ app.set('views', relative('/src/templates/pages'));
 *****************************************/
 
 // Serve static Fies
-app.use('/public', express.static('dist/public'));
+// app.use('/public', express.static('site/public'));
+//now that we are without browserify and static HTML, let's just serve from src/public
+app.use('/public', express.static('src/public'));
+
+
 
 // Common template data across pages
 app.use(function(req, res, next) {

@@ -5,6 +5,8 @@ var cssUrlAdjuster = require('gulp-css-url-adjuster');
 var browserSync = require('browser-sync');
 var errorHandler = require(__dirname + '/errorHandler');
 
+var config = require('../config.js');
+
 module.exports = function() {
     'use strict';
     return gulp.src('./src/public/scss/home.scss')
@@ -16,5 +18,5 @@ module.exports = function() {
         .pipe(cssUrlAdjuster({
             prepend: '/public/images'
         }))
-        .pipe(gulp.dest('./dist/public/css'));
+        .pipe(gulp.dest(config.dest.styles));
 };
