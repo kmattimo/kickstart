@@ -1,6 +1,6 @@
 var path = require('path');
 
-var sitecorePrefix = 'Website/Assets';
+var sitecorePrefix = 'Assets';
 
 //Notice: Since the only thing being compiled is sass->css, both src and dest folders point to /src
 // source directories

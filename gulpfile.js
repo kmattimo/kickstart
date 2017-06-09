@@ -4,7 +4,6 @@ var path = require('path');
 
 // node_modules modules
 var _ = require('lodash');
-var browserify = require('browserify');
 var browserSync = require('browser-sync').create();
 var bsreload = browserSync.reload;
 var del = require('del');
@@ -13,7 +12,6 @@ var nodemon = require('nodemon');
 var mergeStream = require('merge-stream');
 var q = require('q');
 var source = require('vinyl-source-stream');
-var watchify = require('watchify');
 var requireDir = require('require-dir');
 var runSequence = require('run-sequence');
 // var plugins = require('gulp-load-plugins');
@@ -32,7 +30,7 @@ gulp.task('browserSync', function() {
 
 
 // global watch task - compile sass on change, reload browser on JS change
-gulp.task('watch', function() {
+gulp.task('watch:templates', function() {
     //browsersync is configured to watch some files
 
     gulp.watch(config.src.styles, function() {
@@ -46,7 +44,7 @@ gulp.task('watch', function() {
 });
 
 // SERVER - use express to compile handlebars and handle the requests
-gulp.task('serve', function() {
+gulp.task('serve:templates', function() {
     nodemon({
         script: config.sitecorePrefix + '/app.js',
         ext: 'js',
@@ -63,7 +61,7 @@ gulp.task('serve', function() {
 // production build task - minifies CSS
 gulp.task('build:production', ['clean:styles'], function(done) {
     plugins.sequence(
-        ['fonts', 'styles:release'],
+        ['styles:release'],
         done
     );
 });
@@ -73,7 +71,7 @@ gulp.task('clean:styles', tasks.cleanStyles);
 gulp.task('sass', tasks.sass);
 gulp.task('autoprefix', tasks.autoprefixer);
 gulp.task('minify-styles', tasks.minifyStyles);
-gulp.task('fonts', tasks.fonts);
+// gulp.task('fonts', tasks.fonts);
 
 gulp.task('styles:dev', function(done) {
     runSequence('clean:styles', 'sass', 'autoprefix', done);
@@ -86,10 +84,10 @@ gulp.task('styles:release', function(done) {
 console.log(config.src.pages);
 
 //The default task. Compiles CSS, runs express and uses browsersync to inject changes on the fly.
-gulp.task('build', ['clean:styles'], function() {
+gulp.task('build:templates', ['clean:styles'], function() {
     runSequence(
-        ['fonts', 'styles:dev' ],
-        ['watch', 'serve'],
+        ['styles:dev' ],
+        ['watch:templates', 'serve:templates'],
         function() {
             setTimeout(function() {
                 browserSync.init({
@@ -106,4 +104,4 @@ gulp.task('build', ['clean:styles'], function() {
         });
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['build:templates']);
