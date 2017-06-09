@@ -20,6 +20,7 @@ module.exports = {
         verbose: true
     },
 
+//NOTE: always use forward slashes in paths to maintain cross-platform compatibility
     src: {
         docs: srcDir + '/docs/**/*.{md,markdown}',
         pages: srcDir + '/templates/pages/*.{hbs,html}',
