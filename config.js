@@ -1,11 +1,15 @@
 var path = require('path');
+
+var sitecorePrefix = 'Website/Assets';
+
+//Notice: Since the only thing being compiled is sass->css, both src and dest folders point to /src
 // source directories
-var srcDir = 'src';
-var srcAssetsDir = srcDir + '/public';
+var srcDir = path.join(sitecorePrefix, 'src');
+var srcAssetsDir = path.join(srcDir, '/public');
 
 // destination directories
-var destDir = 'src';
-var destAssetsDir = destDir + '/public';
+var destDir = path.join(sitecorePrefix, 'src');
+var destAssetsDir = path.join(destDir, '/public');
 
 // modules
 var imageminMozjpeg = require('imagemin-mozjpeg');
@@ -13,6 +17,7 @@ var imageminMozjpeg = require('imagemin-mozjpeg');
 module.exports = {
 
     dev: true, // gutil.env.dev
+    sitecorePrefix: sitecorePrefix,
 
     logging: {
         logErrors: true,
@@ -23,7 +28,7 @@ module.exports = {
 //NOTE: always use forward slashes in paths to maintain cross-platform compatibility
     src: {
         docs: srcDir + '/docs/**/*.{md,markdown}',
-        pages: srcDir + '/templates/pages/*.{hbs,html}',
+        pages: srcDir + '/templates/**/*.{hbs,html}',
         includes: srcDir + '/templates/partials/**/*.{hbs,html}',
         data: srcAssetsDir + '/data/**/*.{json,yaml,yml}',
         scripts: srcAssetsDir + '/js/**/*.{js,jsx}',

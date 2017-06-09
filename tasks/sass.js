@@ -9,7 +9,7 @@ var config = require('../config.js');
 
 module.exports = function() {
     'use strict';
-    return gulp.src('./src/public/scss/home.scss')
+    return gulp.src(config.src.styles)
         .pipe(plumber({ errorHandler: errorHandler }))
         .pipe(sass({
             indentedSyntax: false, // true enables .sass indented syntax

@@ -33,13 +33,10 @@ gulp.task('browserSync', function() {
 
 // global watch task - compile sass on change, reload browser on JS change
 gulp.task('watch', function() {
+    //browsersync is configured to watch some files
 
     gulp.watch(config.src.styles, function() {
         gulp.start('styles:dev');
-    });
-
-    gulp.watch(config.src.js, function() {
-        browserSync.reload();
     });
 
     gulp.watch(config.src.data, function() {
@@ -48,13 +45,12 @@ gulp.task('watch', function() {
 
 });
 
-
 // SERVER - use express to compile handlebars and handle the requests
 gulp.task('serve', function() {
     nodemon({
-        script: 'app.js',
+        script: config.sitecorePrefix + '/app.js',
         ext: 'js',
-        ignore: ['node_modules/', 'public/', 'src/public/', 'gulpfile.js'],
+        ignore: ['node_modules/', 'src/public/', 'gulpfile.js'],
         tasks: []
     }).on('restart', function() {
         setTimeout(function() {
@@ -87,6 +83,7 @@ gulp.task('styles:release', function(done) {
     runSequence('clean:styles', 'sass', 'autoprefix', 'minify-styles', done);
 });
 
+console.log(config.src.pages);
 
 //The default task. Compiles CSS, runs express and uses browsersync to inject changes on the fly.
 gulp.task('build', ['clean:styles'], function() {
@@ -100,7 +97,7 @@ gulp.task('build', ['clean:styles'], function() {
                     port: '3030',
                     files: [
                         config.dest.styles + '/*.css',
-                        config.dest.scripts + '/**/*.js',
+                        config.src.scripts,
                         config.src.includes,
                         config.src.pages
                     ]
