@@ -67,8 +67,9 @@ routescan(app, { directory: relative('/src/routes') });
   Startup Server
 *****************************************/
 
-app.listen(3000, function() {
+var port = (process.env.PORT || 3000)
+app.listen(port, function() {
     console.log('------------------------------------------');
-    console.log('Template Server Running on localhost:3000');
+    console.log('Template Server Running on localhost:' + port);
     console.log('------------------------------------------');
 });
